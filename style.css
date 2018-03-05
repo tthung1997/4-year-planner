@@ -62,6 +62,10 @@ body {
 
 /* Create two unequal columns that floats next to each other */
 /* Left column */
+.row {
+	margin: 0 calc(10vw - 60px);
+}
+
 .leftcolumn {   
 	float: left;
 	width: 50%;
@@ -80,13 +84,13 @@ body {
 	padding: 20px;
 	margin-top: 20px;
 	text-align: center;
-	height: calc(20vw - 20px);
+	height: 300px;
 }
 
 .semester i {
-	font-size: calc(10vw - 10px);
+	font-size: 150px;
 	color: #66ff66;
-	padding-top: calc(3vw - 10px);
+	padding-top: 60px;
 }
 
 .semester i:hover {
@@ -110,6 +114,9 @@ body {
 
 /* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other */
 @media (max-width: 800px) {
+	.row {
+		margin: 0;
+	}
 	.leftcolumn, .rightcolumn {   
 	    width: 100%;
 		padding: 0;
