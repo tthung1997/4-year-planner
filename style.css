@@ -1,0 +1,144 @@
+* {
+	box-sizing: border-box;
+}
+
+body {
+	font-family: Arial;
+	padding: 10px;
+	background: #f1f1f1;
+}
+
+/* Header/Blog Title */
+.header {
+	padding: 30px;
+	text-align: center;
+	background: white;
+}
+
+.header h1 {
+	display: inline-block;
+	float: center;
+	font-size: 50px;
+}
+
+.header a img {
+	display: block;
+	float: left;
+	width: 130px;
+	height: auto;
+}
+
+/* Style the top navigation bar */
+.topnav {
+	overflow: hidden;
+	background-color: #333;
+	direction: ltr;
+}
+
+/* Style the topnav links */
+.topnav a {
+	float: left;
+	display: block;
+	color: #f2f2f2;
+	text-align: center;
+	padding: 16px 14px;
+	height: 50px;
+	text-decoration: none;
+}
+
+/* Change color on hover */
+.topnav a:hover {
+	background-color: #c12525;
+}
+
+.topnav select {
+	display: block;
+	height: 40px;
+	width: 300px;
+	font-size: 15px;
+	margin: 5px 0;
+	float: left;
+}
+
+/* Create two unequal columns that floats next to each other */
+/* Left column */
+.leftcolumn {   
+	float: left;
+	width: 50%;
+}
+
+/* Right column */
+.rightcolumn {
+	float: left;
+	width: 50%;
+	background-color: #f1f1f1;
+	padding-left: 20px;
+}
+
+.semester {
+	background-color: white;
+	padding: 20px;
+	margin-top: 20px;
+	text-align: center;
+	height: calc(20vw - 20px);
+}
+
+.semester i {
+	font-size: calc(10vw - 10px);
+	color: #66ff66;
+	padding-top: calc(3vw - 10px);
+}
+
+.semester i:hover {
+	color: green;
+}
+
+/* Clear floats after the columns */
+.row:after {
+	content: "";
+	display: table;
+	clear: both;
+}
+
+/* Footer */
+.footer {
+	padding: 20px;
+	text-align: center;
+    background: #ddd;
+    margin-top: 20px;
+}
+
+/* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other */
+@media (max-width: 800px) {
+	.leftcolumn, .rightcolumn {   
+	    width: 100%;
+		padding: 0;
+    }
+	.semester {
+		padding: 10px;
+	}
+	.header a img {
+		width: 30%;
+		margin: 0 35%;
+	}
+}
+
+/* Responsive layout - when the screen is less than 400px wide, make the navigation links stack on top of each other instead of next to each other */
+@media (max-width: 400px) {
+	.topnav a {
+        float: none;
+	    width: 100%;
+		border-bottom: 1px solid #bbb;
+	}
+	.topnav a:last-child {
+		border-bottom: none;
+	}
+	.topnav select {
+		float: none;
+		width: 100%;
+		margin: 0;
+	}
+	.header h1 {
+		font-size: 10vw;
+	}
+}
