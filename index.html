@@ -20,48 +20,178 @@
 			<option value = "Default Plan">Default Plan</option>
 			<option value = "My Plan">My Plan</option>
 		</select>
-		<a href="#" style="float:right">
+		<a href = "#" style = "float: right">
 			<i class = "material-icons">notifications</i>
 		</a>
 		<a href="#" style="float:right">Hi, User!</a>
 	</div>
-	<div class="row">
-		<div class="leftcolumn">
-			<div class="semester">	
-				<a href="#">
-					<i class = "material-icons">add_circle</i>			
-				</a>
+	<div class = "home-bar">
+		<p style = "float: left;">Current semester is in <b style = "color: blue">blue</b></p>
+		<div class = "buttongroup">
+			<button class = "home-button" id = "saveBtn">
+				<div style = "float: left; font-size: 16px; padding: 5px 5px 0 0">Save</div>
+				<div style = "float: left">
+					<i class = "material-icons">save</i>
+				</div>
+			</button>
+			<button onclick = "printPage()" class = "home-button" style = "margin-right: 0">
+				<div style = "float: left; font-size: 16px; padding: 5px 5px 0 0">Print</div>
+				<div style = "float: left">
+					<i class = "material-icons">print</i>
+				</div>
+			</button>
+		</div>
+	</div>
+	<div id = "saveModal" class = "modal">
+		<div class = "modal-content">
+			<div class = "modal-header">
+				<span class = "close">&times;</span>
+				<h2>Save Plan</h2>
 			</div>
-			<div class="semester">
-				<a href="#">
-					<i class = "material-icons">add_circle</i>			
-				</a>
-			</div>
-			<div class="semester">
-				<i class = "material-icons">add_circle</i>			
-			</div>
-			<div class="semester">
-				<i class = "material-icons">add_circle</i>			
+			<div class = "modal-body">
+				<div class = "row">
+					<div class = "leftcolumn" style = "width: 35%">
+						<label class = "radio-container">
+							<div style = "padding-top: 5px;width: 100px;">Save as</div>
+							<input type = "radio" checked = "checked" name = "radio">
+							<span class = "checkmark"></span>
+						</label>
+					</div>
+					<div class = "rightcolumn" style = "background-color: white;width: 65%">
+						<select>
+							<option value = "Default Plan">Default Plan</option>
+							<option value = "My Plan">My Plan</option>
+						</select>
+					</div>
+				</div>
+				<div class = "row">
+					<div class = "leftcolumn" style = "width: 35%">
+						<label class = "radio-container">
+							<div style = "padding-top: 5px;width: 100px;">Create new</div>
+							<input type = "radio" name = "radio">
+							<span class = "checkmark"></span>
+						</label>
+					</div>
+					<div class = "rightcolumn" style = "background-color: white;width: 65%">
+						<input type = "text" placeholder = "Plan name..">
+					</div>
+				</div>
+				<div class = "row">
+					<button id = "modal-saveBtn" class = "modal-button" style = "width: 100%;margin: 10px 0;">Save</button>
+				</div>
 			</div>
 		</div>
-		<div class="rightcolumn">
-			<div class="semester">
-				<i class = "material-icons">add_circle</i>			
+	</div>
+	<div class="row" style = "margin-top: 10px">
+		<div class="leftcolumn leftgroup">
+			<div class="row">
+				<div class="leftcolumn">
+					<div class = "semester-name">First semester</div>
+					<div class="semester">
+						<a href="#">
+							<i class = "material-icons">add_circle</i>			
+						</a>
+					</div>
+				</div>
+				<div class="rightcolumn">
+					<div class = "semester-name">Second semester</div>
+					<div class="semester" style = "outline: solid 10px blue">
+						<a href="#">
+							<i class = "material-icons">add_circle</i>			
+						</a>
+					</div>
+				</div>
 			</div>
-			<div class="semester">
-				<i class = "material-icons">add_circle</i>			
+		</div>
+		<div class="rightcolumn rightgroup">
+			<div class="row">
+				<div class="leftcolumn">
+					<div class = "semester-name">Third semester</div>
+					<div class="semester">	
+						<a href="#">
+							<i class = "material-icons">add_circle</i>			
+						</a>
+					</div>
+				</div>
+				<div class="rightcolumn">
+					<div class = "semester-name">Fourth semester</div>
+					<div class="semester">
+						<a href="#">
+							<i class = "material-icons">add_circle</i>			
+						</a>
+					</div>
+				</div>
 			</div>
-			<div class="semester">
-				<i class = "material-icons">add_circle</i>			
+		</div>
+	</div>
+	<div class="row">
+		<div class="leftcolumn leftgroup">
+			<div class="row">
+				<div class="leftcolumn">
+					<div class = "semester-name">Fifth semester</div>
+					<div class="semester">	
+						<a href="#">
+							<i class = "material-icons">add_circle</i>			
+						</a>
+					</div>
+				</div>
+				<div class="rightcolumn">
+					<div class = "semester-name">Sixth semester</div>
+					<div class="semester">
+						<a href="#">
+							<i class = "material-icons">add_circle</i>			
+						</a>
+					</div>
+				</div>
 			</div>
-			<div class="semester">
-				<i class = "material-icons">add_circle</i>			
+		</div>
+		<div class="rightcolumn rightgroup">
+			<div class="row">
+				<div class="leftcolumn">
+					<div class = "semester-name">Seventh semester</div>
+					<div class="semester">	
+						<a href="#">
+							<i class = "material-icons">add_circle</i>			
+						</a>
+					</div>
+				</div>
+				<div class="rightcolumn">
+					<div class = "semester-name">Eighth semester</div>
+					<div class="semester">
+						<a href="#">
+							<i class = "material-icons">add_circle</i>			
+						</a>
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>
 	<div class="footer">
 		<h2>Footer</h2>
 	</div>
+	<script>
+		var modal = document.getElementById('saveModal');
+		var btn = document.getElementById('saveBtn');
+		var modalBtn = document.getElementById('modal-saveBtn');
+		var span = document.getElementsByClassName("close")[0];
+		function printPage() {
+			window.print();
+		}
+		btn.onclick = function() {
+			modal.style.display = "block";
+		}
+		modalBtn.onclick = function() {
+			modal.style.display = "none";
+		}
+		span.onclick = function() {
+			modal.style.display = "none";
+		}
+		window.onclick = function(event) {
+			if (event.target == modal) {
+				modal.style.display = "none";
+			}
+		}
+	</script>
 </body>
 
 </html>

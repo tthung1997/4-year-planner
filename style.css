@@ -28,11 +28,21 @@ body {
 	height: auto;
 }
 
+.home-bar {
+	margin-top: 10px;
+	width: 100%;
+}
+
+.home-bar:after {
+	content: "";
+	display: table;
+	clear: both;
+}
+
 /* Style the top navigation bar */
 .topnav {
 	overflow: hidden;
 	background-color: #333;
-	direction: ltr;
 }
 
 /* Style the topnav links */
@@ -63,12 +73,13 @@ body {
 /* Create two unequal columns that floats next to each other */
 /* Left column */
 .row {
-	margin: 0 calc(10vw - 60px);
+	margin: 0;
 }
 
 .leftcolumn {   
 	float: left;
 	width: 50%;
+	padding-right: 10px;
 }
 
 /* Right column */
@@ -76,15 +87,26 @@ body {
 	float: left;
 	width: 50%;
 	background-color: #f1f1f1;
-	padding-left: 20px;
+	padding-left: 10px;
 }
 
 .semester {
 	background-color: white;
 	padding: 20px;
-	margin-top: 20px;
+	margin-bottom: 20px;
 	text-align: center;
 	height: 300px;
+}
+
+.semester-name {
+	width: 100%;
+	height: 50px;
+	padding: 12px;
+	font-size: 20px;
+	color: #fff;
+	font-weight: bold;
+	text-align: center;
+	background-color: #8f8f8f;
 }
 
 .semester i {
@@ -112,21 +134,216 @@ body {
     margin-top: 20px;
 }
 
-/* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other */
-@media (max-width: 800px) {
-	.row {
-		margin: 0;
-	}
-	.leftcolumn, .rightcolumn {   
+.buttongroup { 
+	margin: 0;
+	float: right;
+	display: inline-block;
+}
+
+.home-button {
+	background-color: #d36666;
+	border: none;
+	color: white;
+	padding: 10px 20px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	margin: 0 5px;
+	cursor: pointer;
+	float: left;
+}
+
+.home-button:hover {
+	background-color: #c12525;
+}
+
+.modal {
+	display: none;
+	position: fixed;
+	z-index: 1;
+	padding-top: 100px;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	overflow: auto;
+	background-color: rgb(0,0,0);
+	background-color: rgba(0,0,0,0.4);
+}
+
+.modal-content {
+	position: relative;
+	background-color: #fefefe;
+	margin: auto;
+	padding: 0;
+	border: 1px solid #888;
+	width: calc(20% + 50px);
+	box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+	-webkit-animation-name: animatetop;
+	-webkit-animation-duration: 0.4s;
+	animation-name: animatetop;
+	animation-duration: 0.4s;
+}
+
+@-webkit-keyframes animatetop {
+	from {top: -300px; opacity: 0}
+	to {top: 0; opacity: 1}
+}
+
+@keyframes animatetop {
+	from {top: -300px; opacity: 0}
+	to {top: 0; opacity: 1}
+}
+
+.close {
+	color: white;
+	float: right;
+	font-size: 28px;
+	font-weight: bold;
+}
+
+.close:hover, .close:focus {
+	color: #000;
+	text-decoration: none;
+	cursor: pointer;
+}
+
+.modal-header {
+	padding: 2px 16px;
+	background-color: #4b4b4b;
+	color: white;
+}
+
+.modal-button {
+	background-color: #8f8f8f;
+	border: none;
+	color: white;
+	padding: 10px 20px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	margin: 0 5px;
+	cursor: pointer;
+	float: left;
+	font-size: 16px;
+	height: 40px;
+}
+
+.modal-button:hover {
+	background-color: #4b4b4b;
+}
+
+.modal-body {
+	padding: 2px 16px;
+}
+
+.modal-footer {
+	padding: 2px 16px;
+	background-color: #5cb85c;
+	color: white;
+}
+
+.radio-container {
+	display: block;
+	position: relative;
+	padding-left: 55px;
+	margin: 17px 0;
+	cursor: pointer;
+	font-size: 16px;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+.radio-container:after {
+	content: "";
+	display: table;
+	clear: both;
+}
+
+.modal-body select {
+	font-size: 15px;
+	width: 100%;
+	height: 40px;
+	margin-top: 10px;
+	padding-left: 10px;
+}
+
+.modal-body input[type=text] {
+	font-size: 15px;
+	width: 100%;
+	height: 40px;
+	margin-top: 10px;
+	padding-left: 10px;
+}
+
+.radio-container input {
+	position: absolute;
+	opacity: 0;
+	cursor: pointer;
+}
+
+.checkmark {
+	position: absolute;
+	top: 0;
+	left: 20px;
+	height: 25px;
+	width: 25px;
+	background-color: #eee;
+	border-radius: 50%;
+}
+
+.radio-container:hover input ~ .checkmark {
+	background-color: #ccc;
+}
+
+.radio-container input:checked ~ .checkmark {
+	background-color: #2196F3;
+}
+
+.checkmark:after {
+	content: "";
+	position: absolute;
+	display: none;
+}
+
+.radio-container input:checked ~ .checkmark:after {
+	display: block;
+}
+
+.radio-container .checkmark:after {
+	top: 9px;
+	left: 9px;
+	width: 8px;
+	height: 8px;
+	border-radius: 50%;
+	background: white;
+}
+
+/* Responsive layout - when the screen is less than 1200px wide, make the two columns stack on top of each other instead of next to each other */
+@media (max-width: 1200px) {
+	.leftgroup, .rightgroup {   
 	    width: 100%;
 		padding: 0;
     }
+}
+
+@media (max-width: 700px) {
+	.leftcolumn, .rightcolumn {
+		width: 100%;
+		padding: 0;
+	}
 	.semester {
 		padding: 10px;
 	}
 	.header a img {
 		width: 30%;
 		margin: 0 35%;
+	}
+	.buttongroup {
+		float: none;
+		width: 100%;
 	}
 }
 
