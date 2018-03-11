@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="StyleSheet.css">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+</head>
+
+<body>
+	<div class="header">
+		<a href="https://www.unl.edu">
+			<img src="images/unl-logo.png" alt="UNL Logo">
+		</a>
+		<h1>FOUR-YEAR PLANNER</h1>
+	</div>
+	<div class="topnav">
+		<a href="index.html"><i class="material-icons">home</i></a>
+		<select>
+			<option value="Default Plan">Default Plan</option>
+			<option value="My Plan">My Plan</option>
+		</select>
+		<a href="notification.html" style="float: right">
+			<i class="material-icons">notifications</i>
+			<div class = "badge">1</div>
+		</a>
+		<a href="#" style="float:right">Hi, User!</a>
+	</div>
+	
+		<div class="home-bar" style="text-align:center;">
+			<h1>Semester Courses</h1>
+		</div>
+	<center>
+		<div class="box1">
+			<h3>Select your Courses</h3>
+			<div class="semesterCenter">
+				<a href="types2.html">
+					<i class="material-icons">add_circle</i>
+				</a>
+			</div>
+			<div class="semesterCenter">
+				<a href="types2.html">
+					<i class="material-icons">add_circle</i>
+				</a>
+			</div>
+			<div class="semesterCenter">
+				<a href="types2.html">
+					<i class="material-icons">add_circle</i>
+				</a>
+			</div>
+			<div class="semesterCenter">
+				<a href="types2.html">
+					<i class="material-icons">add_circle</i>
+				</a>
+			</div>
+			<div class="semesterCenter">
+				<a href="types2.html">
+					<i class="material-icons">add_circle</i>
+				</a>
+			</div>
+
+			
+		</div>	
+	</center>
+	<center>
+		<div class="box2">
+			<h3>Info</h3>
+			<p style="padding: 5px;">ACE 75% left</p>
+			<div class="meter orange">
+				<span style="width: 25%"></span>
+			</div>
+			<p style="padding: 5px;">Major 30% left</p>
+			<div class="meter red">
+				<span style="width: 70%"></span>
+			</div>
+			<p style="padding: 5px;">CDR 50% left</p>
+			<div class="meter animate">
+				<span style="width: 50%"><span></span></span>
+			</div>
+		</div>
+		
+
+	</center>
+	
+	
+	<script>
+		var modal = document.getElementById('saveModal');
+		var btn = document.getElementById('saveBtn');
+		var modalBtn = document.getElementById('modal-saveBtn');
+		var span = document.getElementsByClassName("close")[0];
+		function printPage() {
+			window.print();
+		}
+		btn.onclick = function () {
+			modal.style.display = "block";
+		}
+		modalBtn.onclick = function () {
+			modal.style.display = "none";
+		}
+		span.onclick = function () {
+			modal.style.display = "none";
+		}
+		window.onclick = function (event) {
+			if (event.target == modal) {
+				modal.style.display = "none";
+			}
+		}
+	
+	</script>
+</body>
+
+</html>

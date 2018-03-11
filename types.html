@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta name = "viewport" content = "width=device-width, initial-scale=1.0">
+	<link rel = "stylesheet" type = "text/css" href = "style.css">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+</head>
+
+<body>
+	<div class="header">
+		<a href = "https://www.unl.edu">
+			<img src = "images/unl-logo.png" alt = "UNL Logo">
+		</a>
+		<h1>FOUR-YEAR PLANNER</h1>
+	</div>
+	<div class="topnav">
+		<a href="index.html"><i class = "material-icons">home</i></a>
+		<select style = "padding-left: 10px">
+			<option value = "Default Plan">Default Plan</option>
+			<option value = "My Plan">My Plan</option>
+		</select>
+		<a href = "notification.html" style = "float: right">
+			<i class = "material-icons">notifications</i>
+			<div id = "notiBadge" class = "badge">1</div>
+		</a>
+		<a href="#" style="float:right">Hi, User!</a>
+	</div>
+	
+	<div class="row">
+		<div class = "leftcolumn-type">
+			<div class = "home-bar" style = "text-align: center">
+				<a href = "semester.html" class = "home-button" style = "font-size:18px;">Back to semester page</a>
+				<h1>CLASS TYPES</h1>
+			</div>
+			<div class="leftcolumn leftgroup">
+				<div class="row">
+					<div class="leftcolumn">
+						<a href="classes.html" style="text-decoration: none">
+							<div class="type">
+								<div class="course-type" style = "font-variant: small-caps;">
+									Math
+								</div>
+							</div>
+						</a>
+					</div>
+					<div class="rightcolumn">
+						<a href="classes.html" style="text-decoration: none">
+							<div class="type">
+								<div class="course-type" style = "font-variant: small-caps;">
+									CSCE
+								</div>
+							</div>
+						</a>
+					</div>
+				</div>
+			</div>
+			<div class="rightcolumn rightgroup">
+				<div class="row">
+					<div class="leftcolumn">
+						<a href="classes.html" style="text-decoration: none">
+							<div class="type">
+								<div class="course-type" style = "font-variant: small-caps;">
+									ACE
+								</div>
+							</div>
+						</a>
+					</div>
+					<div class="rightcolumn">
+						<a href="classes.html" style="text-decoration: none">
+							<div class="type">
+								<div class="course-type" style = "font-variant: small-caps;">
+									All classes
+								</div>
+							</div>
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class = "rightcolumn-type">
+			<div id = "form-content" class = "semester-name" style = "margin-top:20px;">Current courses</div>
+			<div class = "semester" style = "min-height:500px">
+				<div id = "course1" class = "courses" style = "padding:10px;text-align:left;">
+					<div class = "leftcolumn" style = "width:10%">
+						<div class = "deleteBtn" style = "width:100%;height:100%;" onclick = "remove(1)">
+ 							<i class = "material-icons">remove_circle</i>
+ 						</div>
+					</div>
+					<div class = "rightcolumn" style = "width:90%;background:rgba(0,0,0,0);">
+						<div class = "firstRow" style = "font-size:20px;">
+							<div style = "float:left">COURSE</div>
+							<div style = "float:right">Credits: 3</div>
+						</div>
+						<div style = "padding-top: 5px;">Professor: Duncan</div>					
+					</div>
+				</div>
+				<div id = "course2" class = "courses" style = "padding:10px;text-align:left;">
+					<div class = "leftcolumn" style = "width:10%">
+						<div class = "deleteBtn" style = "width:100%;height:100%;" onclick = "remove(2)">
+ 							<i class = "material-icons">remove_circle</i>
+ 						</div>
+					</div>
+					<div class = "rightcolumn" style = "width:90%;background:rgba(0,0,0,0);">
+						<div class = "firstRow" style = "font-size:20px;">
+							<div style = "float:left">COURSE</div>
+							<div style = "float:right">Credits: 3</div>
+						</div>
+						<div style = "padding-top: 5px;">Professor: Duncan</div>					
+					</div>
+				</div>
+			</div>
+		</div>	
+	</div>
+	
+	<div class="footer">
+		Created and tested by HNHMO team of CSCE 378 - Human-Computer Interaction, Spring 2018 &copy All rights reserved
+	</div>
+	<script>
+		function remove(a) {
+			var course = "course" + a;
+			var crsRemove = document.getElementById(course);
+			crsRemove.style.display = "none";
+		}
+	</script>
+</body>
+
+</html>

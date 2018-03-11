@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta name = "viewport" content = "width=device-width, initial-scale=1.0">
+	<link rel = "stylesheet" type = "text/css" href = "style.css">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+</head>
+
+<body>
+	<div class="header">
+		<a href = "https://www.unl.edu">
+			<img src = "images/unl-logo.png" alt = "UNL Logo">
+		</a>
+		<h1>FOUR-YEAR PLANNER</h1>
+	</div>
+	<div class="topnav">
+		<a href="index.html"><i class = "material-icons">home</i></a>
+		<select style = "padding-left: 10px">
+			<option value = "Default Plan">Default Plan</option>
+			<option value = "My Plan">My Plan</option>
+		</select>
+		<a href = "notification.html" style = "float: right">
+			<i class = "material-icons">notifications</i>
+			<div id = "notiBadge" class = "badge">1</div>
+		</a>
+		<a href="#" style="float:right">Hi, User!</a>
+	</div>
+	
+	<div class = "home-bar" style = "text-align: center">
+		<h1>Notifications</h1>
+	</div>
+	
+	<div class="row">
+		<div class = "leftcolumn-noti">
+			<div class = "semester-name">Your notification</div>
+			<div class = "semester" style = "height: auto;min-height:500px;">
+				<div class = "classes" onclick = "read()">Evaluation for CSCE
+					<span id = "newBadge" style = "border:1px solid #8f8f8f;padding:5px;margin-left:10px;border-radius:20px;background-color:#8f8f8f;color:white;">New</span>
+				</div>
+			</div>
+		</div>
+		<div class = "rightcolumn-noti">
+			<div id = "form-content" class = "semester-name">Content</div>
+			<div class = "semester" style = "height: auto;min-height:500px;">
+				<div id = "evalForm" style = "display:none">
+					<div id = "alert" class="alert" style = "display:none">  
+						<span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+						<strong>Success!</strong> Your feedback has been saved.
+					</div>
+					<p style = "font-size:18px;font-weight:bold;">1. How overwhelming is class lecture so far?</p>
+					<div class="pagination">
+					  	<a id = "opt1" value = "1" onclick = "q1(1)" class = "tooltip">1
+					  		<span class = "tooltiptext">Easy</span>
+					  	</a>
+					  	<a id = "opt2" value = "2" onclick = "q1(2)">2</a>
+					  	<a id = "opt3" value = "3" onclick = "q1(3)" class = "tooltip">3
+					  		<span class = "tooltiptext">Moderate</span>
+					  	</a>
+					  	<a id = "opt4" value = "4" onclick = "q1(4)">4</a>
+					  	<a id = "opt5" value = "5" onclick = "q1(5)" class = "tooltip">5
+					  		<span class = "tooltiptext">Hard</span>	
+					  	</a>
+					</div>
+					<p style = "font-size:18px;font-weight:bold;">2. How do you feel about the assignment?</p>
+					<div>
+						<label class = "radio-container" style = "margin: 10px calc(45% - 30px)">
+							<div style = "padding-top: 5px;width: 100px;text-align:left;">Challenging</div>
+							<input type = "radio" name = "radio1">
+							<span class = "checkmark"></span>
+						</label>
+						<label class = "radio-container" style = "margin: 10px calc(45% - 30px)">
+							<div style = "padding-top: 5px;width: 100px;text-align:left;">Intermediate</div>
+							<input type = "radio" name = "radio1">
+							<span class = "checkmark"></span>
+						</label>
+						<label class = "radio-container" style = "margin: 10px calc(45% - 30px)">
+							<div style = "padding-top: 5px;width: 100px;text-align:left;">Chill</div>
+							<input type = "radio" name = "radio1">
+							<span class = "checkmark"></span>
+						</label>
+					</div>
+					<p style = "font-size:18px;font-weight:bold;">3. How long does it take you to finish the assignment?</p>
+					<div>
+						<label class = "radio-container" style = "margin: 10px calc(45% - 30px)">
+							<div style = "padding-top: 5px;width: 100px;text-align:left;">0 - 2 hours</div>
+							<input type = "radio" name = "radio2">
+							<span class = "checkmark"></span>
+						</label>
+						<label class = "radio-container" style = "margin: 10px calc(45% - 30px)">
+							<div style = "padding-top: 5px;width: 100px;text-align:left;">2 - 5 hours</div>
+							<input type = "radio" name = "radio2">
+							<span class = "checkmark"></span>
+						</label>
+						<label class = "radio-container" style = "margin: 10px calc(45% - 30px)">
+							<div style = "padding-top: 5px;width: 100px;text-align:left;">5 - 10 hours</div>
+							<input type = "radio" name = "radio2">
+							<span class = "checkmark"></span>
+						</label>
+						<label class = "radio-container" style = "margin: 10px calc(45% - 30px)">
+							<div style = "padding-top: 5px;width: 100px;text-align:left;">> 10 hours</div>
+							<input type = "radio" name = "radio2">
+							<span class = "checkmark"></span>
+						</label>
+					</div>
+					<p style = "font-size:18px;font-weight:bold;">4. Comment:</p>
+					<div>
+						<textarea placeholder = "Addition comment (if applicable)"></textarea>
+					</div>
+					<button class = "home-button" style = "margin-top: 10px;float: none;font-size:18px" onclick = "submit()">Submit</button>
+				</div>
+			</div>
+		</div>	
+	</div>
+	
+	<div class="footer">
+		Created and tested by HNHMO team of CSCE 378 - Human-Computer Interaction, Spring 2018 &copy All rights reserved
+	</div>
+	<script>
+		function q1(a) {
+			var num = "opt" + a;
+			document.getElementById("opt1").className = "tooltip";
+			document.getElementById("opt2").className = "tooltip";
+			document.getElementById("opt3").className = "tooltip";
+			document.getElementById("opt4").className = "tooltip";
+			document.getElementById("opt5").className = "tooltip";
+			document.getElementById(num).className = "tooltip active";
+		}
+		function read() {
+			var newBadge = document.getElementById('newBadge');
+			newBadge.style.display = "none";
+			var notiBadge = document.getElementById('notiBadge');
+			notiBadge.style.display = "none";
+			var evalForm = document.getElementById('evalForm');
+			evalForm.style.display = "block";
+			var formC = document.getElementById('form-content');
+			formC.innerHTML = "Evaluation for CSCE";
+		}
+		function submit() {
+			var alert = document.getElementById("alert");
+			alert.style.display = "block";
+		}
+	</script>
+</body>
+
+</html>

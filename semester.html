@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="StyleSheet.css">
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+</head>
+
+<body>
+	<div class="header">
+		<a href="https://www.unl.edu">
+			<img src="images/unl-logo.png" alt="UNL Logo">
+		</a>
+		<h1>FOUR-YEAR PLANNER</h1>
+	</div>
+	<div class="topnav">
+		<a href="index.html"><i class="material-icons">home</i></a>
+		<select>
+			<option value="Default Plan">Default Plan</option>
+			<option value="My Plan">My Plan</option>
+		</select>
+		<a href="notification.html" style="float: right">
+			<i class="material-icons">notifications</i>
+			<div class = "badge">1</div>
+		</a>
+		<a href="#" style="float:right">Hi, User!</a>
+	</div>
+	
+	<div id = "infoModal" class = "modal">
+		<div class = "modal-content" style = "width:calc(30% + 50px);">
+			<div class = "modal-header" style = "text-align:center;">
+				<span class = "close">&times;</span>
+				<h2>CLASS INFO</h2>
+			</div>
+			<div class = "modal-body">
+				<div class = "row" style = "padding:10px 20px 0 20px;width:100%">
+					<h1 style = "float:left">COURSE</h1>
+					<h2 style = "padding-top:7.5px;float:right">Overall rating: 
+						<span style = "border:1px solid #4CAF50;padding:5px;border-radius:10px;background-color:#4CAF50;color:white;">
+							5.0
+						</span>
+					</h2>
+				</div>
+				<div class = "row" style = "padding:10px 20px 10px 20px;width:100%">
+					<div class = "leftcolumn" style = "width: 20%;">
+						<strong>DESCRIPTION:</strong>
+					</div>
+					<div class = "rightcolumn" style = "background-color:rgba(0,0,0,0);width: 80%;">
+						<div class = "leftcolumn" style = "width:80%;padding-left:10px;">
+							Required course designed to help HNHMO team test their computer prototype in CSCE 378 - Human-Computer Interaction, Spring 2018.
+						</div>
+						<div class = "rightcolumn" style = "padding:10px 0 5px 0;background-color:rgba(0,0,0,0);width:20%;outline:2px solid gray;">
+							<div style = "width:100%;text-align:center;"><strong>Credits</strong></div>
+							<div style = "width:100%;text-align:center;font-size:40px;"><strong>3</strong></div>
+						</div>
+					</div>
+				</div>
+				<div class = "row" style = "padding:10px 20px 10px 20px;width:100%">
+					<div style = "float:left;padding-right:10px;"><strong>PREREQUISITE:</strong></div>
+					<span style = "border:1px solid #4CAF50;padding:5px;margin-right:10px;border-radius:10px;background-color:#4CAF50;color:white;">
+						COURSE 1
+					</span>
+					<span style = "border:1px solid #4CAF50;padding:5px;margin-right:10px;border-radius:10px;background-color:#4CAF50;color:white;">
+						COURSE 2
+					</span>
+					<span style = "border:1px solid #d36666;padding:5px;margin-right:10px;border-radius:10px;background-color:#d36666;color:white;">
+						COURSE 3
+					</span>
+				</div>
+				<div class = "row" style = "padding:10px 20px 10px 20px;width:100%">
+					<strong>PROFESSOR: </strong>Brittany A. Duncan 
+					<span style = "border:1px solid #4CAF50;padding:5px;border-radius:10px;background-color:#4CAF50;color:white;">
+						5.0
+					</span>
+				</div>
+				<div class = "row" style = "padding:10px 20px 10px 20px;width:100%">
+					<strong>DIFFICULTY: </strong>
+					<span style = "border:1px solid #d36666;padding:5px;border-radius:10px;background-color:#d36666;color:white;">
+						5.0
+					</span>
+					<div style = "float:right;padding-left:5px;">
+						Give us constructive feedbacks!
+					</div>
+					<div style = "text-decoration:underline;float:right;">
+						<i>Tip: </i>
+					</div>
+				</div>
+				<div class = "row" style = "padding:10px 20px 30px 20px;width:100%">
+					<strong>RECOMMENDED BY: </strong>
+					<span style = "border:1px solid #8f8f8f;padding:5px;margin-right:5px;border-radius:10px;background-color:#8f8f8f;color:white;">
+						10 
+					</span>
+					Professors and
+					<span style = "border:1px solid #8f8f8f;padding:5px;margin-right:5px;border-radius:10px;background-color:#8f8f8f;color:white;">
+						99
+					</span>
+					Students
+				</div>
+			</div>
+		</div>
+	</div>
+	
+		<div class="home-bar" style="text-align:center;">
+			<h1>SEMESTER COURSES</h1>
+		</div>
+	<center>
+		<div class="box1">
+			<h3>YOUR COURSES</h3>
+			<div id = "slot1" class="semesterCenter" style = "display:none">
+				<a href="types.html">
+					<i class="material-icons">add_circle</i>
+				</a>
+			</div>
+			<div id = "course1" class="semesterCenter" style = "padding:0 20px;">
+				<i1 class="material-icons" style = "float:left;margin-right:20px;" onclick = "remove()">remove_circle</i1>
+				<strong style = "float:left;font-size:40px;padding-top:10px;margin-right:40px;">COURSE</strong>
+				<div style = "float:left;margin-right:20px;font-size:30px;padding-top:18px;">Professor: Duncan</div>
+				<i class="material-icons" style = "float:right;" onclick = "openInfo()">info</i>
+				<div style = "float:right;padding-top:18px;margin-right:20px;font-size:30px;">Credits: 3</div>
+			</div>
+			<div id = "slot2" class="semesterCenter" style = "display:none">
+				<a href="types.html">
+					<i class="material-icons">add_circle</i>
+				</a>
+			</div>
+			<div id = "course2" class="semesterCenter" style = "padding:0 20px;">
+				<i1 class="material-icons" style = "float:left;margin-right:20px;" onclick = "remove()">remove_circle</i1>
+				<strong style = "float:left;font-size:40px;padding-top:10px;margin-right:40px;">COURSE</strong>
+				<div style = "float:left;margin-right:20px;font-size:30px;padding-top:18px;">Professor: Duncan</div>
+				<i class="material-icons" style = "float:right;" onclick = "openInfo()">info</i>
+				<div style = "float:right;padding-top:18px;margin-right:20px;font-size:30px;">Credits: 3</div>
+			</div>
+			<div id = "slot3" class="semesterCenter">
+				<a href="types.html">
+					<i class="material-icons">add_circle</i>
+				</a>
+			</div>
+			<div id = "course3" class="semesterCenter" style = "padding:0 20px;display:none">
+				<i1 class="material-icons" style = "float:left;margin-right:20px;" onclick = "remove()">remove_circle</i1>
+				<strong style = "float:left;font-size:40px;padding-top:10px;margin-right:40px;">COURSE</strong>
+				<div style = "float:left;margin-right:20px;font-size:30px;padding-top:18px;">Professor: Duncan</div>
+				<i class="material-icons" style = "float:right;" onclick = "openInfo()">info</i>
+				<div style = "float:right;padding-top:18px;margin-right:20px;font-size:30px;">Credits: 3</div>
+			</div>
+			<div id = "slot4" class="semesterCenter">
+				<a href="types.html">
+					<i class="material-icons">add_circle</i>
+				</a>
+			</div>
+			<div id = "course4" class="semesterCenter" style = "padding:0 20px;display:none">
+				<i1 class="material-icons" style = "float:left;margin-right:20px;" onclick = "remove()">remove_circle</i1>
+				<strong style = "float:left;font-size:40px;padding-top:10px;margin-right:40px;">COURSE</strong>
+				<div style = "float:left;margin-right:20px;font-size:30px;padding-top:18px;">Professor: Duncan</div>
+				<i class="material-icons" style = "float:right;" onclick = "openInfo()">info</i>
+				<div style = "float:right;padding-top:18px;margin-right:20px;font-size:30px;">Credits: 3</div>
+			</div>
+			<div id = "slot5" class="semesterCenter">
+				<a href="types.html">
+					<i class="material-icons">add_circle</i>
+				</a>
+			</div>
+			<div id = "course5" class="semesterCenter" style = "padding:0 20px;display:none;">
+				<i1 class="material-icons" style = "float:left;margin-right:20px;" onclick = "remove()">remove_circle</i1>
+				<strong style = "float:left;font-size:40px;padding-top:10px;margin-right:40px;">COURSE</strong>
+				<div style = "float:left;margin-right:20px;font-size:30px;padding-top:18px;">Professor: Duncan</div>
+				<i class="material-icons" style = "float:right;" onclick = "openInfo()">info</i>
+				<div style = "float:right;padding-top:18px;margin-right:20px;font-size:30px;">Credits: 3</div>
+			</div>
+
+			
+		</div>	
+	</center>
+	<center>
+		<div class="box2">
+			<h3>INFO</h3>
+			<p style="padding: 5px;">ACE 75% Left</p>
+			<div class="meter orange">
+				<span style="width: 25%"></span>
+			</div>
+			<p style="padding: 5px;">CSCE 30% Left</p>
+			<div class="meter red">
+				<span style="width: 70%"></span>
+			</div>
+			<p style="padding: 5px;">CDR 50% Left</p>
+			<div class="meter animate">
+				<span style="width: 50%"><span></span></span>
+			</div>
+		</div>
+		
+
+	</center>
+	
+	<div class="footer">
+		Created and tested by HNHMO team of CSCE 378 - Human-Computer Interaction, Spring 2018 &copy All rights reserved
+	</div>
+	
+	<script>
+		function add() {
+			for(var i = 1; i <= 5; i++) {
+				var slot = document.getElementById("slot" + i);
+				if (slot.style.display != "none") {
+					slot.style.display = "none";
+					var course = document.getElementById("course" + i);
+					course.style.display = "block";
+					break;
+				}
+			}
+		}
+		function remove() {
+			for(var i = 5; i >= 1; i--) {
+				var slot = document.getElementById("slot" + i);
+				if (slot.style.display == "none") {
+					slot.style.display = "block";
+					var course = document.getElementById("course" + i);
+					course.style.display = "none";
+					break;
+				}
+			}
+		}
+		var modal = document.getElementById('infoModal');
+		var span = document.getElementsByClassName("close")[0];
+		function openInfo() {
+			modal.style.display = "block";
+		}
+		span.onclick = function() {
+			modal.style.display = "none";
+		}
+		window.onclick = function(event) {
+			if (event.target == modal) {
+				modal.style.display = "none";
+			}
+		}
+	</script>
+</body>
+
+</html>
