@@ -176,7 +176,7 @@
 							Focus:
 						</div>
 						<div class = "rightcolumn" style = "background-color:rgba(0,0,0,0);width:85%">
-							<select id = "focus" style = "padding-left: 10px;height: 40px;width: 100%;font-size:16px;margin:8px 0;" disabled = "disabled">
+							<select id = "focus" style = "padding-left: 10px;height: 40px;width: 100%;font-size:16px;margin:8px 0;" disabled = true>
 								<option value = "Informatics">Informatics</option>
 								<option value = "Artificial Intelligence">Artificial Intelligence</option>
 								<option value = "Networking and High-End Computing">Networking and High-End Computing</option>
@@ -540,10 +540,12 @@
 			}
 		}
 		function unableFocus(cat) {
-			if (cat != "CSCE") return;
 			var focus = document.getElementById("focus");
-			var categrory = document.getElementById("categrory");
-			focus.removeAttribute("disabled");
+			if (cat != "CSCE") {
+				focus.disabled = true;
+				return;
+			}
+			focus.disabled = false;;
 		}
 		var modal = document.getElementById('infoModal');
 		var span = document.getElementsByClassName("close")[0];
