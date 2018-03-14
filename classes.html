@@ -5,6 +5,8 @@
 	<meta name = "viewport" content = "width=device-width, initial-scale=1.0">
 	<link rel = "stylesheet" type = "text/css" href = "style.css">
 	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="courses.js"></script>
 </head>
 
 <body>
@@ -35,8 +37,8 @@
 			</div>
 			<div class = "modal-body">
 				<div class = "row" style = "padding:10px 20px 0 20px;width:100%">
-					<h1 style = "float:left">COURSE</h1>
-					<h2 style = "padding-top:7.5px;float:right">Overall rating: 
+					<h1 id = "modalCourse" style = "float:left">COURSE</h1>
+					<h2 style = "padding-top:7.5px;float:right" id = "modalRating">Overall rating: 
 						<span style = "border:1px solid #4CAF50;padding:5px;border-radius:10px;background-color:#4CAF50;color:white;">
 							5.0
 						</span>
@@ -52,7 +54,7 @@
 						</div>
 						<div class = "rightcolumn" style = "padding:10px 0 5px 0;background-color:rgba(0,0,0,0);width:20%;outline:2px solid gray;">
 							<div style = "width:100%;text-align:center;"><strong>Credits</strong></div>
-							<div style = "width:100%;text-align:center;font-size:40px;"><strong>3</strong></div>
+							<div style = "width:100%;text-align:center;font-size:40px;"><strong id = "modalCredits">3</strong></div>
 						</div>
 					</div>
 				</div>
@@ -69,7 +71,7 @@
 					</span>
 				</div>
 				<div class = "row" style = "padding:10px 20px 10px 20px;width:100%">
-					<strong>PROFESSOR: </strong>Brittany A. Duncan 
+					<strong>PROFESSOR: </strong><font id = "modalProf">Brittany A. Duncan</font>
 					<span style = "border:1px solid #4CAF50;padding:5px;border-radius:10px;background-color:#4CAF50;color:white;">
 						5.0
 					</span>
@@ -191,238 +193,226 @@
 				</div>
 			</div>
 			<div class="row" id = "row1">
-				<div id = "row11" class="leftcolumn leftgroup">
-					<div class="row">
-						<div id = "lcourse1" class="leftcolumn">
-							<div class = "course-name-active">COURSE
-								<a class="class-button">
-									<i class="material-icons" onclick = "openInfo()">info</i>
-									<i1 class="material-icons" onclick = "add()">add_circle</i1>
-								</a>
-							</div>
-							<div class="type-active" style = "height:150px;padding-top:0px;" onclick = "openInfo()">
-								<p style = "color:black;font-size:18px;"><strong>Credits:</strong> 3</p>
-								<p style = "color:black;font-size:18px;"><strong>Professor:</strong> Duncan</p>
-								<p style = "color:black;font-size:18px;"><strong>Overall rating:</strong> 
-									<span style = "border:1px solid #cc0;padding:5px;border-radius:10px;background-color:#cc0;color:white;">
-										4.0
-									</span>
-								</p>
-							</div>
-						</div>
-						<div id = "lcourse2" class="rightcolumn">
-							<div class = "course-name-active">COURSE
-								<a class="class-button">
-									<i class="material-icons" onclick = "openInfo()">info</i>
-									<i1 class="material-icons" onclick = "add()">add_circle</i1>
-								</a>
-							</div>
-							<div class="type-active" style = "height:150px;padding-top:0px;" onclick = "openInfo()">
-								<p style = "color:black;font-size:18px;"><strong>Credits:</strong> 3</p>
-								<p style = "color:black;font-size:18px;"><strong>Professor:</strong> Duncan</p>
-								<p style = "color:black;font-size:18px;"><strong>Overall rating:</strong> 
-									<span style = "border:1px solid #4CAF50;padding:5px;border-radius:10px;background-color:#4CAF50;color:white;">
-										5.0
-									</span>
-								</p>
-							</div>
-						</div>
+				<div id = "lcourse1" style="float:left;padding-right:20px;width:25%">
+					<div class = "course-name-active">
+						<font>COURSE</font>
+						<a class="class-button">
+							<i class="material-icons" onclick = "openInfo('lcourse1')">info</i>
+							<i1 class="material-icons" onclick = "add('lcourse1')">add_circle</i1>
+						</a>
+					</div>
+					<div class="type-active" style = "height:150px;padding-top:0px;" onclick = "openInfo('lcourse1')">
+						<p style = "color:black;font-size:18px;"><strong>Credits:</strong> <font id = "lcourse1credits">3</font></p>
+						<p style = "color:black;font-size:18px;"><strong>Professor:</strong> <font id = "lcourse1prof">Duncan</font></p>
+						<p style = "color:black;font-size:18px;"><strong>Overall rating:</strong> 
+							<span style = "border:1px solid #cc0;padding:5px;border-radius:10px;background-color:#cc0;color:white;">
+								4.0
+							</span>
+						</p>
 					</div>
 				</div>
-				<div id = "row12" class="rightcolumn rightgroup">
-					<div class="row">
-						<div id = "lcourse3" class="leftcolumn">
-							<div class = "course-name-active">COURSE
-								<a class="class-button">
-									<i class="material-icons" onclick = "openInfo()">info</i>
-									<i1 class="material-icons" onclick = "add()">add_circle</i1>
-								</a>
-							</div>
-							<div class="type-active" style = "height:150px;padding-top:0px;" onclick = "openInfo()">
-								<p style = "color:black;font-size:18px;"><strong>Credits:</strong> 3</p>
-								<p style = "color:black;font-size:18px;"><strong>Professor:</strong> Duncan</p>
-								<p style = "color:black;font-size:18px;"><strong>Overall rating:</strong> 
-									<span style = "border:1px solid red;padding:5px;border-radius:10px;background-color:red;color:white;">
-										2.0
-									</span>
-								</p>
-							</div>
-						</div>
-						<div id = "lcourse4" class="rightcolumn">
-							<div class = "course-name-active">COURSE
-								<a class="class-button">
-									<i class="material-icons" onclick = "openInfo()">info</i>
-									<i1 class="material-icons" onclick = "add()">add_circle</i1>
-								</a>
-							</div>
-							<div class="type-active" style = "height:150px;padding-top:0px;" onclick = "openInfo()">
-								<p style = "color:black;font-size:18px;"><strong>Credits:</strong> 3</p>
-								<p style = "color:black;font-size:18px;"><strong>Professor:</strong> Duncan</p>
-								<p style = "color:black;font-size:18px;"><strong>Overall rating:</strong> 
-									<span style = "border:1px solid #ffa550;padding:5px;border-radius:10px;background-color:#ffa550;color:white;">
-										3.0
-									</span>
-								</p>
-							</div>
-						</div>
+				<div id = "lcourse2" style="float:left;padding-right:20px;width:25%">
+					<div class = "course-name-active">
+						<font>COURSE</font>
+						<a class="class-button">
+							<i class="material-icons" onclick = "openInfo('lcourse2')">info</i>
+							<i1 class="material-icons" onclick = "add('lcourse2')">add_circle</i1>
+						</a>
+					</div>
+					<div class="type-active" style = "height:150px;padding-top:0px;" onclick = "openInfo('lcourse2')">
+						<p style = "color:black;font-size:18px;"><strong>Credits:</strong> <font id = "lcourse2credits">3</font></p>
+						<p style = "color:black;font-size:18px;"><strong>Professor:</strong> <font id = "lcourse2prof">Duncan</font></p>
+						<p style = "color:black;font-size:18px;"><strong>Overall rating:</strong> 
+							<span style = "border:1px solid #4CAF50;padding:5px;border-radius:10px;background-color:#4CAF50;color:white;">
+								5.0
+							</span>
+						</p>
+					</div>
+				</div>
+				<div id = "lcourse3" style="float:left;padding-right:20px;width:25%">
+					<div class = "course-name-active">
+						<font>COURSE</font>
+						<a class="class-button">
+							<i class="material-icons" onclick = "openInfo('lcourse3')">info</i>
+							<i1 class="material-icons" onclick = "add('lcourse3')">add_circle</i1>
+						</a>
+					</div>
+					<div class="type-active" style = "height:150px;padding-top:0px;" onclick = "openInfo('lcourse3')">
+						<p style = "color:black;font-size:18px;"><strong>Credits:</strong> <font id = "lcourse3credits">3</font></p>
+						<p style = "color:black;font-size:18px;"><strong>Professor:</strong> <font id = "lcourse3prof">Duncan</font></p>
+						<p style = "color:black;font-size:18px;"><strong>Overall rating:</strong> 
+							<span style = "border:1px solid red;padding:5px;border-radius:10px;background-color:red;color:white;">
+								2.0
+							</span>
+						</p>
+					</div>
+				</div>
+				<div id = "lcourse4" style="float:left;padding-right:20px;width:25%">
+					<div class = "course-name-active">
+						<font>COURSE</font>
+						<a class="class-button">
+							<i class="material-icons" onclick = "openInfo('lcourse4')">info</i>
+							<i1 class="material-icons" onclick = "add('lcourse4')">add_circle</i1>
+						</a>
+					</div>
+					<div class="type-active" style = "height:150px;padding-top:0px;" onclick = "openInfo('lcourse4')">
+						<p style = "color:black;font-size:18px;"><strong>Credits:</strong> <font id = "lcourse4credits">3</font></p>
+						<p style = "color:black;font-size:18px;"><strong>Professor:</strong> <font id = "lcourse4prof">Duncan</font></p>
+						<p style = "color:black;font-size:18px;"><strong>Overall rating:</strong> 
+							<span style = "border:1px solid #ffa550;padding:5px;border-radius:10px;background-color:#ffa550;color:white;">
+								3.0
+							</span>
+						</p>
 					</div>
 				</div>
 			</div>
 			<div class="row" id = "row1t" style = "display:none">
-				<div id = "row11" class="leftcolumn leftgroup">
-					<div class="row">
-						<div id = "rcourse1" class="leftcolumn">
-							<div class = "course-name-active">COURSE
-								<a class="class-button">
-									<i class="material-icons" onclick = "openInfo()">info</i>
-									<i1 class="material-icons" onclick = "add()">add_circle</i1>
-								</a>
-							</div>
-							<div class="type-active" style = "height:150px;padding-top:0px;" onclick = "openInfo()">
-								<p style = "color:black;font-size:18px;"><strong>Credits:</strong> 3</p>
-								<p style = "color:black;font-size:18px;"><strong>Professor:</strong> Duncan</p>
-								<p style = "color:black;font-size:18px;"><strong>Overall rating:</strong> 
-									<span style = "border:1px solid #4CAF50;padding:5px;border-radius:10px;background-color:#4CAF50;color:white;">
-										5.0
-									</span>
-								</p>
-							</div>
-						</div>
-						<div id = "rcourse2" class="rightcolumn">
-							<div class = "course-name-active">COURSE
-								<a class="class-button">
-									<i class="material-icons" onclick = "openInfo()">info</i>
-									<i1 class="material-icons" onclick = "add()">add_circle</i1>
-								</a>
-							</div>
-							<div class="type-active" style = "height:150px;padding-top:0px;" onclick = "openInfo()">
-								<p style = "color:black;font-size:18px;"><strong>Credits:</strong> 3</p>
-								<p style = "color:black;font-size:18px;"><strong>Professor:</strong> Duncan</p>
-								<p style = "color:black;font-size:18px;"><strong>Overall rating:</strong> 
-									<span style = "border:1px solid #cc0;padding:5px;border-radius:10px;background-color:#cc0;color:white;">
-										4.0
-									</span>
-								</p>
-							</div>
-						</div>
+				<div id = "rcourse1" style="float:left;padding-right:20px;width:25%">
+					<div class = "course-name-active">
+						<font>COURSE</font>
+						<a class="class-button">
+							<i class="material-icons" onclick = "openInfo('rcourse1')">info</i>
+							<i1 class="material-icons" onclick = "add('rcourse1')">add_circle</i1>
+						</a>
+					</div>
+					<div class="type-active" style = "height:150px;padding-top:0px;" onclick = "openInfo('rcourse1')">
+						<p style = "color:black;font-size:18px;"><strong>Credits:</strong> <font id = "rcourse1credits">3</font></p>
+						<p style = "color:black;font-size:18px;"><strong>Professor:</strong> <font id = "rcourse1prof">Duncan</font></p>
+						<p style = "color:black;font-size:18px;"><strong>Overall rating:</strong> 
+							<span style = "border:1px solid #4CAF50;padding:5px;border-radius:10px;background-color:#4CAF50;color:white;">
+								5.0
+							</span>
+						</p>
 					</div>
 				</div>
-				<div id = "row12" class="rightcolumn rightgroup">
-					<div class="row">
-						<div id = "rcourse3" class="leftcolumn">
-							<div class = "course-name-active">COURSE
-								<a class="class-button">
-									<i class="material-icons" onclick = "openInfo()">info</i>
-									<i1 class="material-icons" onclick = "add()">add_circle</i1>
-								</a>
-							</div>
-							<div class="type-active" style = "height:150px;padding-top:0px;" onclick = "openInfo()">
-								<p style = "color:black;font-size:18px;"><strong>Credits:</strong> 3</p>
-								<p style = "color:black;font-size:18px;"><strong>Professor:</strong> Duncan</p>
-								<p style = "color:black;font-size:18px;"><strong>Overall rating:</strong> 
-									<span style = "border:1px solid #ffa550;padding:5px;border-radius:10px;background-color:#ffa550;color:white;">
-										3.0
-									</span>
-								</p>
-							</div>
-						</div>
-						<div id = "rcourse4" class="rightcolumn">
-							<div class = "course-name-active">COURSE
-								<a class="class-button">
-									<i class="material-icons" onclick = "openInfo()">info</i>
-									<i1 class="material-icons" onclick = "add()">add_circle</i1>
-								</a>
-							</div>
-							<div class="type-active" style = "height:150px;padding-top:0px;" onclick = "openInfo()">
-								<p style = "color:black;font-size:18px;"><strong>Credits:</strong> 3</p>
-								<p style = "color:black;font-size:18px;"><strong>Professor:</strong> Duncan</p>
-								<p style = "color:black;font-size:18px;"><strong>Overall rating:</strong> 
-									<span style = "border:1px solid red;padding:5px;border-radius:10px;background-color:red;color:white;">
-										2.0
-									</span>
-								</p>
-							</div>
-						</div>
+				<div id = "rcourse2" style="float:left;padding-right:20px;width:25%">
+					<div class = "course-name-active">
+						<font>COURSE</font>
+						<a class="class-button">
+							<i class="material-icons" onclick = "openInfo('rcourse2')">info</i>
+							<i1 class="material-icons" onclick = "add('rcourse2')">add_circle</i1>
+						</a>
+					</div>
+					<div class="type-active" style = "height:150px;padding-top:0px;" onclick = "openInfo('rcourse2')">
+						<p style = "color:black;font-size:18px;"><strong>Credits:</strong> <font id = "rcourse2credits">3</font></p>
+						<p style = "color:black;font-size:18px;"><strong>Professor:</strong> <font id = "rcourse2prof">Duncan</font></p>
+						<p style = "color:black;font-size:18px;"><strong>Overall rating:</strong> 
+							<span style = "border:1px solid #cc0;padding:5px;border-radius:10px;background-color:#cc0;color:white;">
+								4.0
+							</span>
+						</p>
+					</div>
+				</div>
+				<div id = "rcourse3" style="float:left;padding-right:20px;width:25%">
+					<div class = "course-name-active">
+						<font>COURSE</font>
+						<a class="class-button">
+							<i class="material-icons" onclick = "openInfo('rcourse3')">info</i>
+							<i1 class="material-icons" onclick = "add('rcourse3')">add_circle</i1>
+						</a>
+					</div>
+					<div class="type-active" style = "height:150px;padding-top:0px;" onclick = "openInfo('rcourse3')">
+						<p style = "color:black;font-size:18px;"><strong>Credits:</strong> <font id = "rcourse3credits">3</font></p>
+						<p style = "color:black;font-size:18px;"><strong>Professor:</strong> <font id = "rcourse3prof">Duncan</font></p>
+						<p style = "color:black;font-size:18px;"><strong>Overall rating:</strong> 
+							<span style = "border:1px solid #ffa550;padding:5px;border-radius:10px;background-color:#ffa550;color:white;">
+								3.0
+							</span>
+						</p>
+					</div>
+				</div>
+				<div id = "rcourse4" style="float:left;padding-right:20px;width:25%">
+					<div class = "course-name-active">
+						<font>COURSE</font>
+						<a class="class-button">
+							<i class="material-icons" onclick = "openInfo('rcourse4')">info</i>
+							<i1 class="material-icons" onclick = "add('rcourse4')">add_circle</i1>
+						</a>
+					</div>
+					<div class="type-active" style = "height:150px;padding-top:0px;" onclick = "openInfo('rcourse4')">
+						<p style = "color:black;font-size:18px;"><strong>Credits:</strong> <font id = "rcourse4credits">3</font></p>
+						<p style = "color:black;font-size:18px;"><strong>Professor:</strong> <font id = "rcourse4prof">Duncan</font></p>
+						<p style = "color:black;font-size:18px;"><strong>Overall rating:</strong> 
+							<span style = "border:1px solid red;padding:5px;border-radius:10px;background-color:red;color:white;">
+								2.0
+							</span>
+						</p>
 					</div>
 				</div>
 			</div>
 			<div class="row" id = "row2">
-				<div id = "row21" class="leftcolumn leftgroup">
-					<div class="row">
-						<div id = "lcourse5" class="leftcolumn">
-							<div class = "course-name">COURSE
-								<a class="class-button">
-									<i class="material-icons" onclick = "openInfo()">info</i>
-									<i2 class="material-icons">block</i2>
-								</a>
-							</div>
-							<div class="type" style = "height:150px;padding-top:0px;" onclick = "openInfo()">
-								<p style = "color:black;font-size:18px;"><strong>Credits:</strong> 3</p>
-								<p style = "color:black;font-size:18px;"><strong>Professor:</strong> Duncan</p>
-								<p style = "color:black;font-size:18px;"><strong>Overall rating:</strong> 
-									<span style = "border:1px solid #4CAF50;padding:5px;border-radius:10px;background-color:#4CAF50;color:white;">
-										5.0
-									</span>
-								</p>
-							</div>
-						</div>
-						<div id = "lcourse6" class="rightcolumn">	
-							<div class = "course-name">COURSE
-								<a class="class-button">
-									<i class="material-icons" onclick = "openInfo()">info</i>
-									<i2 class="material-icons">block</i2>
-								</a>
-							</div>
-							<div class="type" style = "height:150px;padding-top:0px;" onclick = "openInfo()">
-								<p style = "color:black;font-size:18px;"><strong>Credits:</strong> 3</p>
-								<p style = "color:black;font-size:18px;"><strong>Professor:</strong> Duncan</p>
-								<p style = "color:black;font-size:18px;"><strong>Overall rating:</strong> 
-									<span style = "border:1px solid #4CAF50;padding:5px;border-radius:10px;background-color:#4CAF50;color:white;">
-										5.0
-									</span>
-								</p>
-							</div>
-						</div>
+				<div id = "lcourse5" style = "float:left;padding-right:20px;width:25%">
+					<div class = "course-name">
+						<font>COURSE</font>
+						<a class="class-button">
+							<i class="material-icons" onclick = "openInfo('lcourse5')">info</i>
+							<i2 class="material-icons">block</i2>
+						</a>
+					</div>
+					<div class="type" style = "height:150px;padding-top:0px;" onclick = "openInfo('lcourse5')">
+						<p style = "color:black;font-size:18px;"><strong>Credits:</strong> <font id = "lcourse5credits">3</font></p>
+						<p style = "color:black;font-size:18px;"><strong>Professor:</strong> <font id = "lcourse5prof">Duncan</font></p>
+						<p style = "color:black;font-size:18px;"><strong>Overall rating:</strong> 
+							<span style = "border:1px solid #4CAF50;padding:5px;border-radius:10px;background-color:#4CAF50;color:white;">
+								5.0
+							</span>
+						</p>
 					</div>
 				</div>
-				<div id = "row22" class="rightcolumn rightgroup">
-					<div class="row">
-						<div id = "lcourse7" class="leftcolumn">
-							<div class = "course-name">COURSE
-								<a class="class-button">
-									<i class="material-icons" onclick = "openInfo()">info</i>
-									<i2 class="material-icons">block</i2>
-								</a>
-							</div>
-							<div class="type" style = "height:150px;padding-top:0px;" onclick = "openInfo()">
-								<p style = "color:black;font-size:18px;"><strong>Credits:</strong> 3</p>
-								<p style = "color:black;font-size:18px;"><strong>Professor:</strong> Duncan</p>
-								<p style = "color:black;font-size:18px;"><strong>Overall rating:</strong> 
-									<span style = "border:1px solid #4CAF50;padding:5px;border-radius:10px;background-color:#4CAF50;color:white;">
-										5.0
-									</span>
-								</p>
-							</div>
-						</div>
-						<div id = "lcourse8" class="rightcolumn">
-							<div class = "course-name">COURSE
-								<a class="class-button">
-									<i class="material-icons" onclick = "openInfo()">info</i>
-									<i2 class="material-icons">block</i2>
-								</a>
-							</div>
-							<div class="type" style = "height:150px;padding-top:0px;" onclick = "openInfo()">
-								<p style = "color:black;font-size:18px;"><strong>Credits:</strong> 3</p>
-								<p style = "color:black;font-size:18px;"><strong>Professor:</strong> Duncan</p>
-								<p style = "color:black;font-size:18px;"><strong>Overall rating:</strong> 
-									<span style = "border:1px solid #4CAF50;padding:5px;border-radius:10px;background-color:#4CAF50;color:white;">
-										5.0
-									</span>
-								</p>
-							</div>
-						</div>
+				<div id = "lcourse6" style = "float:left;padding-right:20px;width:25%">
+					<div class = "course-name">
+						<font>COURSE</font>
+						<a class="class-button">
+							<i class="material-icons" onclick = "openInfo('lcourse6')">info</i>
+							<i2 class="material-icons">block</i2>
+						</a>
+					</div>
+					<div class="type" style = "height:150px;padding-top:0px;" onclick = "openInfo('lcourse6')">
+						<p style = "color:black;font-size:18px;"><strong>Credits:</strong> <font id = "lcourse6credits">3</font></p>
+						<p style = "color:black;font-size:18px;"><strong>Professor:</strong> <font id = "lcourse6prof">Duncan</font></p>
+						<p style = "color:black;font-size:18px;"><strong>Overall rating:</strong> 
+							<span style = "border:1px solid #4CAF50;padding:5px;border-radius:10px;background-color:#4CAF50;color:white;">
+								5.0
+							</span>
+						</p>
 					</div>
 				</div>
+				<div id = "lcourse7" style = "float:left;padding-right:20px;width:25%">
+					<div class = "course-name">
+						<font>COURSE</font>
+						<a class="class-button">
+							<i class="material-icons" onclick = "openInfo('lcourse7')">info</i>
+							<i2 class="material-icons">block</i2>
+						</a>
+					</div>
+					<div class="type" style = "height:150px;padding-top:0px;" onclick = "openInfo('lcourse7')">
+						<p style = "color:black;font-size:18px;"><strong>Credits:</strong> <font id = "lcourse7credits">3</font></p>
+						<p style = "color:black;font-size:18px;"><strong>Professor:</strong> <font id = "lcourse7prof">Duncan</font></p>
+						<p style = "color:black;font-size:18px;"><strong>Overall rating:</strong> 
+							<span style = "border:1px solid #4CAF50;padding:5px;border-radius:10px;background-color:#4CAF50;color:white;">
+								5.0
+							</span>
+						</p>
+					</div>
+				</div>
+				<div id = "lcourse8" style = "float:left;padding-right:20px;width:25%">
+					<div class = "course-name">
+						<font>COURSE</font>
+						<a class="class-button">
+							<i class="material-icons" onclick = "openInfo('lcourse8')">info</i>
+							<i2 class="material-icons">block</i2>
+						</a>
+					</div>
+					<div class="type" style = "height:150px;padding-top:0px;" onclick = "openInfo('lcourse8')">
+						<p style = "color:black;font-size:18px;"><strong>Credits:</strong> <font id = "lcourse8credits">3</font></p>
+						<p style = "color:black;font-size:18px;"><strong>Professor:</strong> <font id = "lcourse8prof">Duncan</font></p>
+						<p style = "color:black;font-size:18px;"><strong>Overall rating:</strong> 
+							<span style = "border:1px solid #4CAF50;padding:5px;border-radius:10px;background-color:#4CAF50;color:white;">
+								5.0
+							</span>
+						</p>
+					</div>
+				</div>			
 			</div>
 		</div>
 		<div class = "rightcolumn-type">
@@ -436,10 +426,10 @@
 					</div>
 					<div class = "rightcolumn" style = "width:90%;background:rgba(0,0,0,0);">
 						<div class = "firstRow" style = "font-size:20px;">
-							<div style = "float:left">COURSE</div>
-							<div style = "float:right">Credits: 3</div>
+							<div style = "float:left" id = "course1title">COURSE</div>
+							<div style = "float:right" id = "course1credits">Credits: 3</div>
 						</div>
-						<div style = "padding-top: 5px;">Professor: Duncan</div>					
+						<div style = "padding-top: 5px;" id = "course1prof">Professor: Duncan</div>					
 					</div>
 				</div>
 				<div id = "course2" class = "courses" style = "padding:10px;text-align:left;">
@@ -450,10 +440,10 @@
 					</div>
 					<div class = "rightcolumn" style = "width:90%;background:rgba(0,0,0,0);">
 						<div class = "firstRow" style = "font-size:20px;">
-							<div style = "float:left">COURSE</div>
-							<div style = "float:right">Credits: 3</div>
+							<div style = "float:left" id = "course2title">COURSE</div>
+							<div style = "float:right" id = "course2credits">Credits: 3</div>
 						</div>
-						<div style = "padding-top: 5px;">Professor: Duncan</div>					
+						<div style = "padding-top: 5px;" id = "course2prof">Professor: Duncan</div>					
 					</div>
 				</div>
 				<div id = "course3" class = "courses" style = "padding:10px;text-align:left;display:none">
@@ -464,10 +454,10 @@
 					</div>
 					<div class = "rightcolumn" style = "width:90%;background:rgba(0,0,0,0);">
 						<div class = "firstRow" style = "font-size:20px;">
-							<div style = "float:left">COURSE</div>
-							<div style = "float:right">Credits: 3</div>
+							<div style = "float:left" id = "course3title">COURSE</div>
+							<div style = "float:right" id = "course3credits">Credits: 3</div>
 						</div>
-						<div style = "padding-top: 5px;">Professor: Duncan</div>					
+						<div style = "padding-top: 5px;" id = "course3prof">Professor: Duncan</div>					
 					</div>
 				</div>
 				<div id = "course4" class = "courses" style = "padding:10px;text-align:left;display:none">
@@ -478,10 +468,10 @@
 					</div>
 					<div class = "rightcolumn" style = "width:90%;background:rgba(0,0,0,0);">
 						<div class = "firstRow" style = "font-size:20px;">
-							<div style = "float:left">COURSE</div>
-							<div style = "float:right">Credits: 3</div>
+							<div style = "float:left" id = "course4title">COURSE</div>
+							<div style = "float:right" id = "course4credits">Credits: 3</div>
 						</div>
-						<div style = "padding-top: 5px;">Professor: Duncan</div>					
+						<div style = "padding-top: 5px;" id = "course4prof">Professor: Duncan</div>					
 					</div>
 				</div>
 				<div id = "course5" class = "courses" style = "padding:10px;text-align:left;display:none">
@@ -492,10 +482,10 @@
 					</div>
 					<div class = "rightcolumn" style = "width:90%;background:rgba(0,0,0,0);">
 						<div class = "firstRow" style = "font-size:20px;">
-							<div style = "float:left">COURSE</div>
-							<div style = "float:right">Credits: 3</div>
+							<div style = "float:left" id = "course5title">COURSE</div>
+							<div style = "float:right" id = "course5credits">Credits: 3</div>
 						</div>
-						<div style = "padding-top: 5px;">Professor: Duncan</div>					
+						<div style = "padding-top: 5px;" id = "course5prof">Professor: Duncan</div>					
 					</div>
 				</div>
 				<div id = "course6" class = "courses" style = "padding:10px;text-align:left;display:none">
@@ -506,10 +496,10 @@
 					</div>
 					<div class = "rightcolumn" style = "width:90%;background:rgba(0,0,0,0);">
 						<div class = "firstRow" style = "font-size:20px;">
-							<div style = "float:left">COURSE</div>
-							<div style = "float:right">Credits: 3</div>
+							<div style = "float:left" id = "course6title">COURSE</div>
+							<div style = "float:right" id = "course6credits">Credits: 3</div>
 						</div>
-						<div style = "padding-top: 5px;">Professor: Duncan</div>					
+						<div style = "padding-top: 5px;" id = "course6prof">Professor: Duncan</div>					
 					</div>
 				</div>
 			</div>
@@ -520,22 +510,75 @@
 		Created and tested by HNHMO team of CSCE 378 - Human-Computer Interaction, Spring 2018 &copy All rights reserved
 	</div>
 	<script>
+		
+		/* Populate course names */
+		var offset = 0;
+		switch(window.location.search) {
+			case "?CSCE":
+				offset = 0;
+				break;
+			case "?MATH":
+				offset = 8;
+				break;
+			case "?ACE":
+				offset = 16;
+				break;
+			default:
+				break;
+		}
+		var activeCourses = courses.slice(offset, offset + 4);
+		activeCourses.sort(function(a, b) {return 0.5 - Math.random()});
+		coursesList = activeCourses.concat(courses.slice(offset + 4, offset + 8));
+				
+		var credits_tag = "<strong>Credits: </strong>"; 
+		var professors_tag = "<strong>Professor: </strong>";
+		var overall_rating_tag = "<strong>Overall rating: </strong>";
+		var overall_rating_tags = ["","",
+			overall_rating_tag + "<span style = \"border:1px solid red;padding:5px;border-radius:10px;background-color:red;color:white;\">", //2
+			overall_rating_tag + "<span style = \"border:1px solid #ffa550;padding:5px;border-radius:10px;background-color:#ffa550;color:white;\">", //3
+			overall_rating_tag + "<span style = \"border:1px solid #cc0;padding:5px;border-radius:10px;background-color:#cc0;color:white;\">", //4
+			overall_rating_tag + "<span style = \"border:1px solid #4CAF50;padding:5px;border-radius:10px;background-color:#4CAF50;color:white;\">" //5
+			]
+		
+		
+		var i = 0;	
+		while(i < 8) {
+			var course_tag = "#lcourse" + (i+1);
+			$(course_tag + " div:nth-child(1) font:nth-child(1)").html(coursesList[i].title);
+			$(course_tag + "credits").html('<font id = "' + ('lcourse' + (i+1)) + 'credits">' + coursesList[i].credits + '</font>');
+			$(course_tag + "prof").html('<font id = "' + ('lcourse' + (i+1)) + 'prof">' + coursesList[i].professor + '</font>');
+			course_rating = coursesList[i].overall_rating.substring(0,1);
+			if(course_rating === "N") {
+				course_rating = 5;
+			}
+			$(course_tag + " p:nth-child(3)").html(overall_rating_tags[course_rating] + coursesList[i].overall_rating + "</span>");
+			if (i < 4) {
+				course_tag = "#rcourse" + (i+1);
+				$(course_tag + " div:nth-child(1) font:nth-child(1)").html(courses[i + offset].title);
+				$(course_tag + "credits").html('<font id = "' + ('rcourse' + (i+1)) + 'credits">' + courses[i + offset].credits + '</font>');
+				$(course_tag + "prof").html('<font id = "' + ('rcourse' + (i+1)) + 'prof">' + courses[i + offset].professor + '</font>');
+				course_rating = courses[i + offset].overall_rating.substring(0,1);
+				if(course_rating === "N") {
+					course_rating = 5;
+				}
+				$(course_tag + " p:nth-child(3)").html(overall_rating_tags[course_rating] + courses[i + offset].overall_rating + "</span>");
+			}
+			i++;
+		}
 		function remove(a) {
-			var course = "course" + a;
+			var course = 'course' + a;
 			var crsRemove = document.getElementById(course);
 			crsRemove.style.display = "none";
-			for(var i = 1; i <= 4; i++) {
-				var row1 = document.getElementById('row1');
+			if (a > 2) {
 				var lcourse;
 				if (row1.style.display == "none") {
-					lcourse = document.getElementById("rcourse" + i);
+					lcourse = document.getElementById("rcourse" + (a - 2));
 				}
 				else {
-					lcourse = document.getElementById("lcourse" + i);
+					lcourse = document.getElementById("lcourse" + (a - 2));
 				}
 				if (lcourse.style.display == "none") {
 					lcourse.style.display = "block";
-					break;
 				}
 			}
 		}
@@ -549,23 +592,18 @@
 		}
 		var modal = document.getElementById('infoModal');
 		var span = document.getElementsByClassName("close")[0];
-		function add() {
-			for(var i = 4; i >= 1; i--) {
-				var row1 = document.getElementById('row1');
-				var course4;
-				if (row1.style.display == "none") {
-					course4 = document.getElementById("rcourse" + i);
-				}
-				else {
-					course4 = document.getElementById("lcourse" + i);
-				}
-				if (course4.style.display != "none") {
-					course4.style.display = "none";
-					var course3 = document.getElementById("course" + (i + 2));
-					course3.style.display = "block";
-					break;
-				}
-			}
+		function add(course) {
+			var title = $('#' + course + " div:nth-child(1) font:nth-child(1)").html().trim();
+			var credits = $('#' + course + "credits").html().trim();
+			var prof = $('#' + course + "prof").html().trim();
+			var num = parseInt(course[7]);
+			var courserId = "course" + (num + 2);
+			var courser = document.getElementById(courserId);
+			$('#' + courserId + 'title').html(title);
+			$('#' + courserId + 'credits').html('Credits: ' + credits);
+			$('#' + courserId + 'prof').html('Professor: ' + prof);
+			courser.style.display = "block";
+			document.getElementById(course).style.display = "none";
 		}
 		function search() {
 			var row1 = document.getElementById('row1');
@@ -573,7 +611,13 @@
 			row1.style.display = "none";
 			row1t.style.display = "block";
 		}
-		function openInfo() {
+		function openInfo(course) {
+			var title = $('#' + course + " div:nth-child(1) font:nth-child(1)").html().trim();
+			var credits = $('#' + course + "credits").html().trim();
+			var prof = $('#' + course + "prof").html().trim();
+			$('#modalCourse').html(title);
+			$('#modalCredits').html(credits);
+			$('#modalProf').html(prof);
 			modal.style.display = "block";
 		}
 		span.onclick = function() {
