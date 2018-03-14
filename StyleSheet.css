@@ -141,6 +141,17 @@ body {
     cursor:pointer;
 }
 
+.semesterCenter i2 {
+    font-size: 50px;
+    color: #66f;
+    padding-top: 10px;
+}
+
+.semesterCenter i2:hover {
+    color: blue;
+    cursor:pointer;
+}
+
 .semesterCenter i:hover {
     color: green;
     cursor: pointer;
