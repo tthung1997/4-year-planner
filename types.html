@@ -83,7 +83,7 @@
 		</div>
 		<div class = "rightcolumn-type"> <div id = "form-content" class = "semester-name" style = "margin-top:20px;">Current courses</div>
 			<div class = "semester" style = "min-height:500px">
-				<div id = "course1" class = "courses" style = "padding:10px;text-align:left;">
+				<div id = "course1" class = "courses" style = "padding:10px;text-align:left;display:none">
 					<div class = "leftcolumn" style = "width:10%">
 						<div class = "deleteBtn" style = "width:100%;height:100%;" onclick = "remove(1)">
  							<i class = "material-icons">remove_circle</i>
@@ -91,13 +91,13 @@
 					</div>
 					<div class = "rightcolumn" style = "width:90%;background:rgba(0,0,0,0);">
 						<div class = "firstRow" style = "font-size:20px;">
-							<div style = "float:left">COURSE</div>
-							<div style = "float:right">Credits: 3</div>
+							<div style = "float:left" id = "course1title">COURSE</div>
+							<div style = "float:right" id = "course1credits">Credits: 3</div>
 						</div>
-						<div style = "padding-top: 5px;">Professor: Duncan</div>					
+						<div style = "padding-top: 5px;" id = "course1prof">Professor: Duncan</div>					
 					</div>
 				</div>
-				<div id = "course2" class = "courses" style = "padding:10px;text-align:left;">
+				<div id = "course2" class = "courses" style = "padding:10px;text-align:left;display:none">
 					<div class = "leftcolumn" style = "width:10%">
 						<div class = "deleteBtn" style = "width:100%;height:100%;" onclick = "remove(2)">
  							<i class = "material-icons">remove_circle</i>
@@ -105,14 +105,71 @@
 					</div>
 					<div class = "rightcolumn" style = "width:90%;background:rgba(0,0,0,0);">
 						<div class = "firstRow" style = "font-size:20px;">
-							<div style = "float:left">COURSE</div>
-							<div style = "float:right">Credits: 3</div>
+							<div style = "float:left" id = "course2title">COURSE</div>
+							<div style = "float:right" id = "course2credits">Credits: 3</div>
 						</div>
-						<div style = "padding-top: 5px;">Professor: Duncan</div>					
+						<div style = "padding-top: 5px;" id = "course2prof">Professor: Duncan</div>					
 					</div>
 				</div>
+				<div id = "course3" class = "courses" style = "padding:10px;text-align:left;display:none">
+					<div class = "leftcolumn" style = "width:10%">
+						<div class = "deleteBtn" style = "width:100%;height:100%;" onclick = "remove(3)">
+ 							<i class = "material-icons">remove_circle</i>
+ 						</div>
+					</div>
+					<div class = "rightcolumn" style = "width:90%;background:rgba(0,0,0,0);">
+						<div class = "firstRow" style = "font-size:20px;">
+							<div style = "float:left" id = "course3title">COURSE</div>
+							<div style = "float:right" id = "course3credits">Credits: 3</div>
+						</div>
+						<div style = "padding-top: 5px;" id = "course3prof">Professor: Duncan</div>					
+					</div>
+				</div>
+				<div id = "course4" class = "courses" style = "padding:10px;text-align:left;display:none">
+					<div class = "leftcolumn" style = "width:10%">
+						<div class = "deleteBtn" style = "width:100%;height:100%;" onclick = "remove(4)">
+ 							<i class = "material-icons">remove_circle</i>
+ 						</div>
+					</div>
+					<div class = "rightcolumn" style = "width:90%;background:rgba(0,0,0,0);">
+						<div class = "firstRow" style = "font-size:20px;">
+							<div style = "float:left" id = "course4title">COURSE</div>
+							<div style = "float:right" id = "course4credits">Credits: 3</div>
+						</div>
+						<div style = "padding-top: 5px;" id = "course4prof">Professor: Duncan</div>					
+					</div>
+				</div>
+				<div id = "course5" class = "courses" style = "padding:10px;text-align:left;display:none">
+					<div class = "leftcolumn" style = "width:10%">
+						<div class = "deleteBtn" style = "width:100%;height:100%;" onclick = "remove(5)">
+ 							<i class = "material-icons">remove_circle</i>
+ 						</div>
+					</div>
+					<div class = "rightcolumn" style = "width:90%;background:rgba(0,0,0,0);">
+						<div class = "firstRow" style = "font-size:20px;">
+							<div style = "float:left" id = "course5title">COURSE</div>
+							<div style = "float:right" id = "course5credits">Credits: 3</div>
+						</div>
+						<div style = "padding-top: 5px;" id = "course5prof">Professor: Duncan</div>					
+					</div>
+				</div>
+				<div id = "course6" class = "courses" style = "padding:10px;text-align:left;display:none">
+					<div class = "leftcolumn" style = "width:10%">
+						<div class = "deleteBtn" style = "width:100%;height:100%;" onclick = "remove(6)">
+ 							<i class = "material-icons">remove_circle</i>
+ 						</div>
+					</div>
+					<div class = "rightcolumn" style = "width:90%;background:rgba(0,0,0,0);">
+						<div class = "firstRow" style = "font-size:20px;">
+							<div style = "float:left" id = "course6title">COURSE</div>
+							<div style = "float:right" id = "course6credits">Credits: 3</div>
+						</div>
+						<div style = "padding-top: 5px;" id = "course6prof">Professor: Duncan</div>					
+					</div>
+				</div>
+	
 			</div>
-		</div>	
+		</div>
 	</div>
 	
 	<div class="footer">

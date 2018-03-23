@@ -1,5 +1,7 @@
 function populateCurrentCourseHTML() {
     var cartCourses = getCartCourses();
+    //TODO: delete prints
+    console.log(cartCourses);
     var courses = getAllCourses();
     for(i = 0; i < cartCourses.length; i++) {
         var courseEntryId = "course"+(i+1); 
