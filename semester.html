@@ -108,27 +108,27 @@
 	<center>
 		<div class="box1">
 			<h3>YOUR COURSES</h3>
-			<div id = "slot1" class="semesterCenter" style = "display:none">
+			<div id = "slot1" class="semesterCenter">
 				<a href="types.html">
 					<i class="material-icons">add_circle</i>
 				</a>
 			</div>
-			<div id = "course1" class="semesterCenter" style = "padding:0 20px;">
+			<div id = "course1" class="semesterCenter" style = "padding:0 20px;display:none">
 				<i1 class="material-icons" style = "float:left;margin-right:20px;" onclick = "remove()">remove_circle</i1>
 				<strong style = "float:left;font-size:40px;padding-top:10px;margin-right:40px;">COURSE</strong>
-				<div style = "float:left;margin-right:20px;font-size:30px;padding-top:18px;">Professor: Duncan</div>
+				<div style = "float:left;margin-right:20px;font-size:30px;padding-top:18px;">Professor: <font id = "course1prof">Duncan</font></div>
 				<i2 class="material-icons" style = "float:right;" onclick = "openInfo()">info</i2>
-				<div style = "float:right;padding-top:18px;margin-right:20px;font-size:30px;">Credits: 3</div>
+				<div style = "float:right;padding-top:18px;margin-right:20px;font-size:30px;">Credits:<font id = "course1cred">3</font></div>
 			</div>
-			<div id = "slot2" class="semesterCenter" style = "display:none">
+			<div id = "slot2" class="semesterCenter">
 				<a href="types.html">
 					<i class="material-icons">add_circle</i>
 				</a>
 			</div>
-			<div id = "course2" class="semesterCenter" style = "padding:0 20px;">
+			<div id = "course2" class="semesterCenter" style = "padding:0 20px;display:none">
 				<i1 class="material-icons" style = "float:left;margin-right:20px;" onclick = "remove()">remove_circle</i1>
 				<strong style = "float:left;font-size:40px;padding-top:10px;margin-right:40px;">COURSE</strong>
-				<div style = "float:left;margin-right:20px;font-size:30px;padding-top:18px;">Professor: Duncan</div>
+				<div style = "float:left;margin-right:20px;font-size:30px;padding-top:18px;">Professor: <font id = "course2prof">Duncan</font></div>
 				<i2 class="material-icons" style = "float:right;" onclick = "openInfo()">info</i2>
 				<div style = "float:right;padding-top:18px;margin-right:20px;font-size:30px;">Credits: 3</div>
 			</div>
@@ -197,6 +197,15 @@
 	</div>
 	
 	<script>
+		function populateCourses(){
+			var courses = getAllCourses();
+			var cartCourses = getCartCourses();
+			for(i=0; i < cartCourses.length; i++) {
+				var courseEntryId = "course"+(i+1);
+				var courseEntry = document.getElementById(courseEntryId);
+				var courseEntryPlus = document.getElementByID(courseEntryId+"Empty")
+			}
+		}
 		function add() {
 			for(var i = 1; i <= 5; i++) {
 				var slot = document.getElementById("slot" + i);
@@ -208,6 +217,7 @@
 				}
 			}
 		}
+
 		function remove() {
 			for(var i = 5; i >= 1; i--) {
 				var slot = document.getElementById("slot" + i);
