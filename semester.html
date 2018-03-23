@@ -6,6 +6,8 @@
 	<link rel="stylesheet" type="text/css" href="semester_style.css">
 	<link rel="stylesheet" type="text/css" href="style.css">
 	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="courses.js"></script>
 </head>
 
 <body>
@@ -114,8 +116,8 @@
 				</a>
 			</div>
 			<div id = "course1" class="semesterCenter" style = "padding:0 20px;display:none">
-				<i1 class="material-icons" style = "float:left;margin-right:20px;" onclick = "remove()">remove_circle</i1>
-				<strong style = "float:left;font-size:40px;padding-top:10px;margin-right:40px;">COURSE</strong>
+				<i1 class="material-icons" style = "float:left;margin-right:20px;" onclick = "remove(1)">remove_circle</i1>
+				<strong id = "course1course" style = "float:left;font-size:40px;padding-top:10px;margin-right:40px;">COURSE</strong>
 				<div style = "float:left;margin-right:20px;font-size:30px;padding-top:18px;">Professor: <font id = "course1prof">Duncan</font></div>
 				<i2 class="material-icons" style = "float:right;" onclick = "openInfo()">info</i2>
 				<div style = "float:right;padding-top:18px;margin-right:20px;font-size:30px;">Credits:<font id = "course1cred">3</font></div>
@@ -126,11 +128,11 @@
 				</a>
 			</div>
 			<div id = "course2" class="semesterCenter" style = "padding:0 20px;display:none">
-				<i1 class="material-icons" style = "float:left;margin-right:20px;" onclick = "remove()">remove_circle</i1>
-				<strong style = "float:left;font-size:40px;padding-top:10px;margin-right:40px;">COURSE</strong>
+				<i1 class="material-icons" style = "float:left;margin-right:20px;" onclick = "remove(2)">remove_circle</i1>
+				<strong id = "course2course" style = "float:left;font-size:40px;padding-top:10px;margin-right:40px;">COURSE</strong>
 				<div style = "float:left;margin-right:20px;font-size:30px;padding-top:18px;">Professor: <font id = "course2prof">Duncan</font></div>
 				<i2 class="material-icons" style = "float:right;" onclick = "openInfo()">info</i2>
-				<div style = "float:right;padding-top:18px;margin-right:20px;font-size:30px;">Credits: 3</div>
+				<div style = "float:right;padding-top:18px;margin-right:20px;font-size:30px;">Credits:<font id = "course2cred">3</font></div>
 			</div>
 			<div id = "slot3" class="semesterCenter">
 				<a href="types.html">
@@ -138,11 +140,11 @@
 				</a>
 			</div>
 			<div id = "course3" class="semesterCenter" style = "padding:0 20px;display:none">
-				<i1 class="material-icons" style = "float:left;margin-right:20px;" onclick = "remove()">remove_circle</i1>
-				<strong style = "float:left;font-size:40px;padding-top:10px;margin-right:40px;">COURSE</strong>
-				<div style = "float:left;margin-right:20px;font-size:30px;padding-top:18px;">Professor: Duncan</div>
+				<i1 class="material-icons" style = "float:left;margin-right:20px;" onclick = "remove(3)">remove_circle</i1>
+				<strong id = "course3course" style = "float:left;font-size:40px;padding-top:10px;margin-right:40px;">COURSE</strong>
+				<div style = "float:left;margin-right:20px;font-size:30px;padding-top:18px;">Professor: <font id = "course3prof">Duncan</font></div>
 				<i2 class="material-icons" style = "float:right;" onclick = "openInfo()">info</i2>
-				<div style = "float:right;padding-top:18px;margin-right:20px;font-size:30px;">Credits: 3</div>
+				<div style = "float:right;padding-top:18px;margin-right:20px;font-size:30px;">Credits:<font id = "course3cred">3</font></div>
 			</div>
 			<div id = "slot4" class="semesterCenter">
 				<a href="types.html">
@@ -150,23 +152,23 @@
 				</a>
 			</div>
 			<div id = "course4" class="semesterCenter" style = "padding:0 20px;display:none">
-				<i1 class="material-icons" style = "float:left;margin-right:20px;" onclick = "remove()">remove_circle</i1>
-				<strong style = "float:left;font-size:40px;padding-top:10px;margin-right:40px;">COURSE</strong>
-				<div style = "float:left;margin-right:20px;font-size:30px;padding-top:18px;">Professor: Duncan</div>
+				<i1 class="material-icons" style = "float:left;margin-right:20px;" onclick = "remove(4)">remove_circle</i1>
+				<strong id = "course4course" style = "float:left;font-size:40px;padding-top:10px;margin-right:40px;">COURSE</strong>
+				<div style = "float:left;margin-right:20px;font-size:30px;padding-top:18px;">Professor: <font id = "course4prof">Duncan</font></div>
 				<i2 class="material-icons" style = "float:right;" onclick = "openInfo()">info</i2>
-				<div style = "float:right;padding-top:18px;margin-right:20px;font-size:30px;">Credits: 3</div>
+				<div style = "float:right;padding-top:18px;margin-right:20px;font-size:30px;">Credits:<font id = "course4cred">3</font></div>
 			</div>
 			<div id = "slot5" class="semesterCenter">
 				<a href="types.html">
 					<i class="material-icons">add_circle</i>
 				</a>
 			</div>
-			<div id = "course5" class="semesterCenter" style = "padding:0 20px;display:none;">
-				<i1 class="material-icons" style = "float:left;margin-right:20px;" onclick = "remove()">remove_circle</i1>
-				<strong style = "float:left;font-size:40px;padding-top:10px;margin-right:40px;">COURSE</strong>
-				<div style = "float:left;margin-right:20px;font-size:30px;padding-top:18px;">Professor: Duncan</div>
+			<div id = "course5" class="semesterCenter" style = "padding:0 20px;display:none">
+				<i1 class="material-icons" style = "float:left;margin-right:20px;" onclick = "remove(5)">remove_circle</i1>
+				<strong id = "course5course" style = "float:left;font-size:40px;padding-top:10px;margin-right:40px;">COURSE</strong>
+				<div style = "float:left;margin-right:20px;font-size:30px;padding-top:18px;">Professor: <font id = "course5prof">Duncan</font></div>
 				<i2 class="material-icons" style = "float:right;" onclick = "openInfo()">info</i2>
-				<div style = "float:right;padding-top:18px;margin-right:20px;font-size:30px;">Credits: 3</div>
+				<div style = "float:right;padding-top:18px;margin-right:20px;font-size:30px;">Credits:<font id = "course5cred">3</font></div>
 			</div>
 
 			
@@ -197,13 +199,20 @@
 	</div>
 	
 	<script>
+		populateCourses();
 		function populateCourses(){
 			var courses = getAllCourses();
 			var cartCourses = getCartCourses();
 			for(i=0; i < cartCourses.length; i++) {
 				var courseEntryId = "course"+(i+1);
 				var courseEntry = document.getElementById(courseEntryId);
-				var courseEntryPlus = document.getElementByID(courseEntryId+"Empty")
+				var courseEntryPlus = document.getElementById("slot"+(i+1));
+				var course = courses[cartCourses[i]];
+				$('#'+courseEntryId+'course').html(course.title);
+				$('#'+courseEntryId+'prof').html(course.professor);
+				$('#'+courseEntryId+'cred').html(course.credits);
+				courseEntry.style.display = 'block';
+				courseEntryPlus.style.display = 'none';
 			}
 		}
 		function add() {
@@ -217,7 +226,14 @@
 				}
 			}
 		}
-
+		function remove(course_num){
+			deleteCartIndex(course_num-1);
+			var slot = document.getElementById("slot" + i);
+			var course = document.getElementById("course"+i);
+			course.style.display = "none";
+			slot.style.display = "block";
+		}
+		/*
 		function remove() {
 			for(var i = 5; i >= 1; i--) {
 				var slot = document.getElementById("slot" + i);
@@ -229,6 +245,7 @@
 				}
 			}
 		}
+		*/
 		var modal = document.getElementById('infoModal');
 		var span = document.getElementsByClassName("close")[0];
 		function openInfo() {
