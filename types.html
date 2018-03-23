@@ -5,6 +5,9 @@
 	<meta name = "viewport" content = "width=device-width, initial-scale=1.0">
 	<link rel = "stylesheet" type = "text/css" href = "style.css">
 	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="courses.js"></script>
+	<script src="current-courses-bar.js"></script>
 </head>
 
 <body>
@@ -78,8 +81,7 @@
 				</div>
 			</div>
 		</div>
-		<div class = "rightcolumn-type">
-			<div id = "form-content" class = "semester-name" style = "margin-top:20px;">Current courses</div>
+		<div class = "rightcolumn-type"> <div id = "form-content" class = "semester-name" style = "margin-top:20px;">Current courses</div>
 			<div class = "semester" style = "min-height:500px">
 				<div id = "course1" class = "courses" style = "padding:10px;text-align:left;">
 					<div class = "leftcolumn" style = "width:10%">
@@ -117,7 +119,9 @@
 		Created and tested by HNHMO team of CSCE 378 - Human-Computer Interaction, Spring 2018 &copy All rights reserved
 	</div>
 	<script>
+		populateCurrentCourseHTML();
 		function remove(a) {
+			deleteCartIndex(a-1);
 			var course = "course" + a;
 			var crsRemove = document.getElementById(course);
 			crsRemove.style.display = "none";

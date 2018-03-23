@@ -7,6 +7,7 @@
 	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script src="courses.js"></script>
+	<script src="current-courses-bar.js"></script>
 </head>
 
 <body>
@@ -198,7 +199,7 @@
 						<font>COURSE</font>
 						<a class="class-button">
 							<i class="material-icons" onclick = "openInfo('lcourse1')">info</i>
-							<i1 class="material-icons" onclick = "add('lcourse1')">add_circle</i1>
+							<i1 class="material-icons" onclick = "add('lcourse1'); addCartCourse(ids['lcourse1']);">add_circle</i1>
 						</a>
 					</div>
 					<div class="type-active" style = "height:150px;padding-top:0px;" onclick = "openInfo('lcourse1')">
@@ -216,7 +217,7 @@
 						<font>COURSE</font>
 						<a class="class-button">
 							<i class="material-icons" onclick = "openInfo('lcourse2')">info</i>
-							<i1 class="material-icons" onclick = "add('lcourse2')">add_circle</i1>
+							<i1 class="material-icons" onclick = "add('lcourse2'); addCartCourse(ids['lcourse2']);">add_circle</i1>
 						</a>
 					</div>
 					<div class="type-active" style = "height:150px;padding-top:0px;" onclick = "openInfo('lcourse2')">
@@ -234,7 +235,7 @@
 						<font>COURSE</font>
 						<a class="class-button">
 							<i class="material-icons" onclick = "openInfo('lcourse3')">info</i>
-							<i1 class="material-icons" onclick = "add('lcourse3')">add_circle</i1>
+							<i1 class="material-icons" onclick = "add('lcourse3'); addCartCourse(ids['lcourse3']);">add_circle</i1>
 						</a>
 					</div>
 					<div class="type-active" style = "height:150px;padding-top:0px;" onclick = "openInfo('lcourse3')">
@@ -252,7 +253,7 @@
 						<font>COURSE</font>
 						<a class="class-button">
 							<i class="material-icons" onclick = "openInfo('lcourse4')">info</i>
-							<i1 class="material-icons" onclick = "add('lcourse4')">add_circle</i1>
+							<i1 class="material-icons" onclick = "add('lcourse4'); addCartCourse(ids['lcourse4']);">add_circle</i1>
 						</a>
 					</div>
 					<div class="type-active" style = "height:150px;padding-top:0px;" onclick = "openInfo('lcourse4')">
@@ -418,7 +419,7 @@
 		<div class = "rightcolumn-type">
 			<div id = "form-content" class = "semester-name" style = "margin-top:20px;">Current courses</div>
 			<div class = "semester" style = "min-height:500px;height:770px;">
-				<div id = "course1" class = "courses" style = "padding:10px;text-align:left;">
+				<div id = "course1" class = "courses" style = "padding:10px;text-align:left;display:none">
 					<div class = "leftcolumn" style = "width:10%">
 						<div class = "deleteBtn" style = "width:100%;height:100%;" onclick = "remove(1)">
  							<i class = "material-icons">remove_circle</i>
@@ -432,7 +433,7 @@
 						<div style = "padding-top: 5px;" id = "course1prof">Professor: Duncan</div>					
 					</div>
 				</div>
-				<div id = "course2" class = "courses" style = "padding:10px;text-align:left;">
+				<div id = "course2" class = "courses" style = "padding:10px;text-align:left;display:none">
 					<div class = "leftcolumn" style = "width:10%">
 						<div class = "deleteBtn" style = "width:100%;height:100%;" onclick = "remove(2)">
  							<i class = "material-icons">remove_circle</i>
@@ -510,78 +511,84 @@
 		Created and tested by HNHMO team of CSCE 378 - Human-Computer Interaction, Spring 2018 &copy All rights reserved
 	</div>
 	<script>
-		
-		/* Populate course names */
-		var offset = 0;
-		switch(window.location.search) {
-			case "?CSCE":
-				offset = 0;
-				break;
-			case "?MATH":
-				offset = 8;
-				break;
-			case "?ACE":
-				offset = 16;
-				break;
-			default:
-				break;
-		}
-		var activeCourses = courses.slice(offset, offset + 4);
-		activeCourses.sort(function(a, b) {return 0.5 - Math.random()});
-		coursesList = activeCourses.concat(courses.slice(offset + 4, offset + 8));
-				
-		var credits_tag = "<strong>Credits: </strong>"; 
-		var professors_tag = "<strong>Professor: </strong>";
-		var overall_rating_tag = "<strong>Overall rating: </strong>";
-		var overall_rating_tags = ["","",
-			overall_rating_tag + "<span style = \"border:1px solid red;padding:5px;border-radius:10px;background-color:red;color:white;\">", //2
-			overall_rating_tag + "<span style = \"border:1px solid #ffa550;padding:5px;border-radius:10px;background-color:#ffa550;color:white;\">", //3
-			overall_rating_tag + "<span style = \"border:1px solid #cc0;padding:5px;border-radius:10px;background-color:#cc0;color:white;\">", //4
-			overall_rating_tag + "<span style = \"border:1px solid #4CAF50;padding:5px;border-radius:10px;background-color:#4CAF50;color:white;\">" //5
-			]
-		
-		
-		var i = 0;	
-		while(i < 8) {
-			var course_tag = "#lcourse" + (i+1);
-			$(course_tag + " div:nth-child(1) font:nth-child(1)").html(coursesList[i].title);
-			$(course_tag + "credits").html('<font id = "' + ('lcourse' + (i+1)) + 'credits">' + coursesList[i].credits + '</font>');
-			$(course_tag + "prof").html('<font id = "' + ('lcourse' + (i+1)) + 'prof">' + coursesList[i].professor + '</font>');
-			course_rating = coursesList[i].overall_rating.substring(0,1);
-			if(course_rating === "N") {
-				course_rating = 5;
+		var ids;
+		// TODO: Remove print
+		console.log(getCartCourses());
+		populateCourses();
+		populateCurrentCourseHTML();
+
+		function populateCourses(){ 	
+			/* Populate course names */
+			var offset = 0;
+			switch(window.location.search) {
+				case "?CSCE":
+					offset = 0;
+					break;
+				case "?MATH":
+					offset = 8;
+					break;
+				case "?ACE":
+					offset = 16;
+					break;
+				default:
+					break;
 			}
-			$(course_tag + " p:nth-child(3)").html(overall_rating_tags[course_rating] + coursesList[i].overall_rating + "</span>");
-			if (i < 4) {
-				course_tag = "#rcourse" + (i+1);
-				$(course_tag + " div:nth-child(1) font:nth-child(1)").html(courses[i + offset].title);
-				$(course_tag + "credits").html('<font id = "' + ('rcourse' + (i+1)) + 'credits">' + courses[i + offset].credits + '</font>');
-				$(course_tag + "prof").html('<font id = "' + ('rcourse' + (i+1)) + 'prof">' + courses[i + offset].professor + '</font>');
-				course_rating = courses[i + offset].overall_rating.substring(0,1);
+			/* Make dictionary for course id's */
+			ids = {	"lcourse1":offset,
+				"lcourse2":offset+1,
+				"lcourse3":offset+2,
+				"lcourse4":offset+3,
+				"lcourse5":offset+4,
+				"lcourse6":offset+5,
+				"lcourse7":offset+6,
+				"lcourse8":offset+7
+				};
+			
+			var activeCourses = courses.slice(offset, offset + 4);
+			//activeCourses.sort(function(a, b) {return 0.5 - Math.random()});
+			coursesList = activeCourses.concat(courses.slice(offset + 4, offset + 8));
+					
+			var credits_tag = "<strong>Credits: </strong>"; 
+			var professors_tag = "<strong>Professor: </strong>";
+			var overall_rating_tag = "<strong>Overall rating: </strong>";
+			var overall_rating_tags = ["","",
+				overall_rating_tag + "<span style = \"border:1px solid red;padding:5px;border-radius:10px;background-color:red;color:white;\">", //2
+				overall_rating_tag + "<span style = \"border:1px solid #ffa550;padding:5px;border-radius:10px;background-color:#ffa550;color:white;\">", //3
+				overall_rating_tag + "<span style = \"border:1px solid #cc0;padding:5px;border-radius:10px;background-color:#cc0;color:white;\">", //4
+				overall_rating_tag + "<span style = \"border:1px solid #4CAF50;padding:5px;border-radius:10px;background-color:#4CAF50;color:white;\">" //5
+				]
+			
+			var cartCourses = getCartCourses();
+			
+			var i = 0;	
+			while(i < 8) {
+				var course_tag = "#lcourse" + (i+1);
+				$(course_tag + " div:nth-child(1) font:nth-child(1)").html(coursesList[i].title);
+				$(course_tag + "credits").html('<font id = "' + ('lcourse' + (i+1)) + 'credits">' + coursesList[i].credits + '</font>');
+				$(course_tag + "prof").html('<font id = "' + ('lcourse' + (i+1)) + 'prof">' + coursesList[i].professor + '</font>');
+				course_rating = coursesList[i].overall_rating.substring(0,1);
 				if(course_rating === "N") {
 					course_rating = 5;
 				}
-				$(course_tag + " p:nth-child(3)").html(overall_rating_tags[course_rating] + courses[i + offset].overall_rating + "</span>");
+				$(course_tag + " p:nth-child(3)").html(overall_rating_tags[course_rating] + coursesList[i].overall_rating + "</span>");
+				if (i < 4) {
+					course_tag = "#rcourse" + (i+1);
+					$(course_tag + " div:nth-child(1) font:nth-child(1)").html(courses[i + offset].title);
+					$(course_tag + "credits").html('<font id = "' + ('rcourse' + (i+1)) + 'credits">' + courses[i + offset].credits + '</font>');
+					$(course_tag + "prof").html('<font id = "' + ('rcourse' + (i+1)) + 'prof">' + courses[i + offset].professor + '</font>');
+					course_rating = courses[i + offset].overall_rating.substring(0,1);
+					if(course_rating === "N") {
+						course_rating = 5;
+					}
+					$(course_tag + " p:nth-child(3)").html(overall_rating_tags[course_rating] + courses[i + offset].overall_rating + "</span>");
+				}
+				// Hide if in cart
+				if(cartCourses.indexOf(i+offset) !== -1) {
+		    			document.getElementById("lcourse"+(i+1)).style.display = "none";
+				}
+				i++;
 			}
-			i++;
-		}
-		function remove(a) {
-			var course = 'course' + a;
-			var crsRemove = document.getElementById(course);
-			crsRemove.style.display = "none";
-			if (a > 2) {
-				var lcourse;
-				if (row1.style.display == "none") {
-					lcourse = document.getElementById("rcourse" + (a - 2));
-				}
-				else {
-					lcourse = document.getElementById("lcourse" + (a - 2));
-				}
-				if (lcourse.style.display == "none") {
-					lcourse.style.display = "block";
-				}
-			}
-		}
+		}	
 		function unableFocus(cat) {
 			var focus = document.getElementById("focus");
 			if (cat != "CSCE") {
@@ -592,19 +599,6 @@
 		}
 		var modal = document.getElementById('infoModal');
 		var span = document.getElementsByClassName("close")[0];
-		function add(course) {
-			var title = $('#' + course + " div:nth-child(1) font:nth-child(1)").html().trim();
-			var credits = $('#' + course + "credits").html().trim();
-			var prof = $('#' + course + "prof").html().trim();
-			var num = parseInt(course[7]);
-			var courserId = "course" + (num + 2);
-			var courser = document.getElementById(courserId);
-			$('#' + courserId + 'title').html(title);
-			$('#' + courserId + 'credits').html('Credits: ' + credits);
-			$('#' + courserId + 'prof').html('Professor: ' + prof);
-			courser.style.display = "block";
-			document.getElementById(course).style.display = "none";
-		}
 		function search() {
 			var row1 = document.getElementById('row1');
 			var row1t = document.getElementById('row1t');
@@ -628,6 +622,38 @@
 				modal.style.display = "none";
 			}
 		}
+		function add(course) {
+		    var title = $('#' + course + " div:nth-child(1) font:nth-child(1)").html().trim();
+		    var credits = $('#' + course + "credits").html().trim();
+		    var prof = $('#' + course + "prof").html().trim();
+		    var num = parseInt(course[7]);
+		    var courserId = "course" + (num + 2);
+		    var courser = document.getElementById(courserId);
+		    $('#' + courserId + 'title').html(title);
+		    $('#' + courserId + 'credits').html('Credits: ' + credits);
+		    $('#' + courserId + 'prof').html('Professor: ' + prof);
+		    courser.style.display = "block";
+		    document.getElementById(course).style.display = "none";
+		}
+		function remove(a) {
+		    deleteCartIndex(a-1);
+		    var course = 'course' + a;
+		    var crsRemove = document.getElementById(course);
+		    crsRemove.style.display = "none";
+		    if (a > 2) {
+			var lcourse;
+			if (row1.style.display == "none") {
+			    lcourse = document.getElementById("rcourse" + (a - 2));
+			}
+			else {
+			    lcourse = document.getElementById("lcourse" + (a - 2));
+			}
+			if (lcourse.style.display == "none") {
+			    lcourse.style.display = "block";
+			}
+		    }
+		}
+
 	</script>
 </body>
 

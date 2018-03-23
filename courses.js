@@ -10,14 +10,16 @@ class Course {
 var initialized;
 var courses;
 
+init();
 function init(){
 	if(!initialized){
 		/* Dumby Data */
-		courses = [ new Course("CSCE230", "2", "Witty", "4.5"),
-                	new Course("CSCE361", "1", "Rothermel", "4.0"),
+		courses = [ 
+            new Course("CSCE230", "2", "Witty", "4.5"),
+           	new Course("CSCE361", "1", "Rothermel", "4.0"),
 			new Course("CSCE156", "5", "Patrick", "3.0"), 
-               		new Course("CSCE235", "4", "Hasan", "3.0"),
-                	new Course("CSCE423", "3", "Scott", "4.0"),
+           	new Course("CSCE235", "4", "Hasan", "3.0"),
+           	new Course("CSCE423", "3", "Scott", "4.0"),
 			new Course("CSCE451", "3", "Lu", "3.1"),
 			new Course("CSCE422", "3", "Vinod", "5.0"),
 			new Course("CSCE452", "4", "Clark", "2.3"),
@@ -38,12 +40,15 @@ function init(){
 			new Course("PSYCH109", "3", "Baker", "NA"),
 			new Course("ART250", "5", "Thompson", "NA")
 		];
-		var cart_courses = [0, 1];
-		saveCart(cart_courses);
+        if(sessionStorage.getItem("cart_courses") === null) {
+		    var cart_courses = [0, 1, 2];
+		    saveCart(cart_courses);
+        }
 		initialized = true;
 	}
 
 }
+
 
 function getCartCourses(){
 	var cart_courses = sessionStorage.getItem("cart_courses");
@@ -65,13 +70,16 @@ function deleteCartCourse(id){
 	saveCart(cart_courses);	
 }
 
-function saveCart(cart_courses) {
-	sessionStorage.setItem("cart_courses", JSON.stringify(cart_courses);
+function deleteCartIndex(index){
+   var cart_courses = getCartCourses();
+   cart_courses.splice(index, 1);
+   saveCart(cart_courses);
 }
 
+function saveCart(cart_courses) {
+	sessionStorage.setItem("cart_courses", JSON.stringify(cart_courses));
+}
 
-
-
-
-
-
+function getAllCourses() {
+    return courses;
+}
