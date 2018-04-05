@@ -17,16 +17,16 @@
 		<h1>FOUR-YEAR PLANNER</h1>
 	</div>
 	<div class="topnav">
-		<a href="index.html"><i class = "material-icons">home</i></a>
+		<a href="index.html"><i class = "material-icons" style = "font-size:30px">home</i></a>
 		<select style = "padding-left: 10px">
 			<option value = "Default Plan">Default Plan</option>
 			<option value = "My Plan">My Plan</option>
 		</select>
 		<a href = "notification.html" style = "float: right">
-			<i class = "material-icons">notifications</i>
-			<div id = "notiBadge" class = "badge">1</div>
+			<i class = "material-icons" style = "font-size:30px">notifications</i>
+			<div class = "badge">1</div>
 		</a>
-		<a href="#" style="float:right">Hi, User!</a>
+		<a href="#" style="float:right;font-size:20px;padding-top:20px">Hi, User!</a>
 	</div>
 	
 	<div id = "infoModal" class = "modal">
@@ -98,6 +98,10 @@
 						99
 					</span>
 					Students
+				</div>
+				<div id = "modal-btnrow" class = "row" style = "padding:10px 20px 30px 20px;width:100%">
+					<button class = "modal-button" id = "modal-addbtn" style = "width:100%;margin:0">Add to this semester</button>
+					<button class = "modal-inactivebtn" id = "inactive-btn" style = "width:100%;margin:0;display:none" disabled>You must meet all prerequisites to add this course</button>
 				</div>
 			</div>
 		</div>
@@ -193,15 +197,11 @@
 				</div>
 			</div>
 			<div class="row" id = "row1">
-				<div id = "lcourse1" style="float:left;padding-right:20px;width:25%">
+				<div class = "class" id = "lcourse1" style="float:left;padding-right:20px;width:25%" onclick = "openInfo('lcourse1')">
 					<div class = "course-name-active">
 						<font>COURSE</font>
-						<a class="class-button">
-							<i class="material-icons" onclick = "openInfo('lcourse1')">info</i>
-							<i1 class="material-icons" onclick = "add('lcourse1')">add_circle</i1>
-						</a>
 					</div>
-					<div class="type-active" style = "height:150px;padding-top:0px;" onclick = "openInfo('lcourse1')">
+					<div class="type" style = "border-color:#d36666;height:150px;padding-top:0px;">
 						<p style = "color:black;font-size:18px;"><strong>Credits:</strong> <font id = "lcourse1credits">3</font></p>
 						<p style = "color:black;font-size:18px;"><strong>Professor:</strong> <font id = "lcourse1prof">Duncan</font></p>
 						<p style = "color:black;font-size:18px;"><strong>Overall rating:</strong> 
@@ -211,15 +211,11 @@
 						</p>
 					</div>
 				</div>
-				<div id = "lcourse2" style="float:left;padding-right:20px;width:25%">
+				<div class = "class" id = "lcourse2" style="float:left;padding-right:20px;width:25%" onclick = "openInfo('lcourse2')">
 					<div class = "course-name-active">
 						<font>COURSE</font>
-						<a class="class-button">
-							<i class="material-icons" onclick = "openInfo('lcourse2')">info</i>
-							<i1 class="material-icons" onclick = "add('lcourse2')">add_circle</i1>
-						</a>
 					</div>
-					<div class="type-active" style = "height:150px;padding-top:0px;" onclick = "openInfo('lcourse2')">
+					<div class="type" style = "border-color:#d36666;height:150px;padding-top:0px;">
 						<p style = "color:black;font-size:18px;"><strong>Credits:</strong> <font id = "lcourse2credits">3</font></p>
 						<p style = "color:black;font-size:18px;"><strong>Professor:</strong> <font id = "lcourse2prof">Duncan</font></p>
 						<p style = "color:black;font-size:18px;"><strong>Overall rating:</strong> 
@@ -229,15 +225,11 @@
 						</p>
 					</div>
 				</div>
-				<div id = "lcourse3" style="float:left;padding-right:20px;width:25%">
+				<div class = "class" id = "lcourse3" style="float:left;padding-right:20px;width:25%" onclick = "openInfo('lcourse3')">
 					<div class = "course-name-active">
 						<font>COURSE</font>
-						<a class="class-button">
-							<i class="material-icons" onclick = "openInfo('lcourse3')">info</i>
-							<i1 class="material-icons" onclick = "add('lcourse3')">add_circle</i1>
-						</a>
 					</div>
-					<div class="type-active" style = "height:150px;padding-top:0px;" onclick = "openInfo('lcourse3')">
+					<div class="type" style = "border-color:#d36666;height:150px;padding-top:0px;">
 						<p style = "color:black;font-size:18px;"><strong>Credits:</strong> <font id = "lcourse3credits">3</font></p>
 						<p style = "color:black;font-size:18px;"><strong>Professor:</strong> <font id = "lcourse3prof">Duncan</font></p>
 						<p style = "color:black;font-size:18px;"><strong>Overall rating:</strong> 
@@ -247,15 +239,11 @@
 						</p>
 					</div>
 				</div>
-				<div id = "lcourse4" style="float:left;padding-right:20px;width:25%">
+				<div class = "class" id = "lcourse4" style="float:left;padding-right:20px;width:25%" onclick = "openInfo('lcourse4')">
 					<div class = "course-name-active">
 						<font>COURSE</font>
-						<a class="class-button">
-							<i class="material-icons" onclick = "openInfo('lcourse4')">info</i>
-							<i1 class="material-icons" onclick = "add('lcourse4')">add_circle</i1>
-						</a>
 					</div>
-					<div class="type-active" style = "height:150px;padding-top:0px;" onclick = "openInfo('lcourse4')">
+					<div class="type" style = "border-color:#d36666;height:150px;padding-top:0px;">
 						<p style = "color:black;font-size:18px;"><strong>Credits:</strong> <font id = "lcourse4credits">3</font></p>
 						<p style = "color:black;font-size:18px;"><strong>Professor:</strong> <font id = "lcourse4prof">Duncan</font></p>
 						<p style = "color:black;font-size:18px;"><strong>Overall rating:</strong> 
@@ -267,15 +255,11 @@
 				</div>
 			</div>
 			<div class="row" id = "row1t" style = "display:none">
-				<div id = "rcourse1" style="float:left;padding-right:20px;width:25%">
+				<div class = "class" id = "rcourse1" style="float:left;padding-right:20px;width:25%" onclick = "openInfo('rcourse1')">
 					<div class = "course-name-active">
 						<font>COURSE</font>
-						<a class="class-button">
-							<i class="material-icons" onclick = "openInfo('rcourse1')">info</i>
-							<i1 class="material-icons" onclick = "add('rcourse1')">add_circle</i1>
-						</a>
 					</div>
-					<div class="type-active" style = "height:150px;padding-top:0px;" onclick = "openInfo('rcourse1')">
+					<div class="type" style = "border-color:#d36666;height:150px;padding-top:0px;">
 						<p style = "color:black;font-size:18px;"><strong>Credits:</strong> <font id = "rcourse1credits">3</font></p>
 						<p style = "color:black;font-size:18px;"><strong>Professor:</strong> <font id = "rcourse1prof">Duncan</font></p>
 						<p style = "color:black;font-size:18px;"><strong>Overall rating:</strong> 
@@ -285,15 +269,11 @@
 						</p>
 					</div>
 				</div>
-				<div id = "rcourse2" style="float:left;padding-right:20px;width:25%">
+				<div class = "class" id = "rcourse2" style="float:left;padding-right:20px;width:25%" onclick = "openInfo('rcourse2')">
 					<div class = "course-name-active">
 						<font>COURSE</font>
-						<a class="class-button">
-							<i class="material-icons" onclick = "openInfo('rcourse2')">info</i>
-							<i1 class="material-icons" onclick = "add('rcourse2')">add_circle</i1>
-						</a>
 					</div>
-					<div class="type-active" style = "height:150px;padding-top:0px;" onclick = "openInfo('rcourse2')">
+					<div class="type" style = "border-color:#d36666;height:150px;padding-top:0px;">
 						<p style = "color:black;font-size:18px;"><strong>Credits:</strong> <font id = "rcourse2credits">3</font></p>
 						<p style = "color:black;font-size:18px;"><strong>Professor:</strong> <font id = "rcourse2prof">Duncan</font></p>
 						<p style = "color:black;font-size:18px;"><strong>Overall rating:</strong> 
@@ -303,15 +283,11 @@
 						</p>
 					</div>
 				</div>
-				<div id = "rcourse3" style="float:left;padding-right:20px;width:25%">
+				<div class = "class" id = "rcourse3" style="float:left;padding-right:20px;width:25%" onclick = "openInfo('rcourse3')">
 					<div class = "course-name-active">
 						<font>COURSE</font>
-						<a class="class-button">
-							<i class="material-icons" onclick = "openInfo('rcourse3')">info</i>
-							<i1 class="material-icons" onclick = "add('rcourse3')">add_circle</i1>
-						</a>
 					</div>
-					<div class="type-active" style = "height:150px;padding-top:0px;" onclick = "openInfo('rcourse3')">
+					<div class="type" style = "border-color:#d36666;height:150px;padding-top:0px;">
 						<p style = "color:black;font-size:18px;"><strong>Credits:</strong> <font id = "rcourse3credits">3</font></p>
 						<p style = "color:black;font-size:18px;"><strong>Professor:</strong> <font id = "rcourse3prof">Duncan</font></p>
 						<p style = "color:black;font-size:18px;"><strong>Overall rating:</strong> 
@@ -321,15 +297,11 @@
 						</p>
 					</div>
 				</div>
-				<div id = "rcourse4" style="float:left;padding-right:20px;width:25%">
+				<div class = "class" id = "rcourse4" style="float:left;padding-right:20px;width:25%" onclick = "openInfo('rcourse4')">
 					<div class = "course-name-active">
 						<font>COURSE</font>
-						<a class="class-button">
-							<i class="material-icons" onclick = "openInfo('rcourse4')">info</i>
-							<i1 class="material-icons" onclick = "add('rcourse4')">add_circle</i1>
-						</a>
 					</div>
-					<div class="type-active" style = "height:150px;padding-top:0px;" onclick = "openInfo('rcourse4')">
+					<div class="type" style = "border-color:#d36666;height:150px;padding-top:0px;">
 						<p style = "color:black;font-size:18px;"><strong>Credits:</strong> <font id = "rcourse4credits">3</font></p>
 						<p style = "color:black;font-size:18px;"><strong>Professor:</strong> <font id = "rcourse4prof">Duncan</font></p>
 						<p style = "color:black;font-size:18px;"><strong>Overall rating:</strong> 
@@ -341,15 +313,11 @@
 				</div>
 			</div>
 			<div class="row" id = "row2">
-				<div id = "lcourse5" style = "float:left;padding-right:20px;width:25%">
+				<div class = "class" id = "lcourse5" style = "float:left;padding-right:20px;width:25%" onclick = "openInfo('lcourse5')">
 					<div class = "course-name">
 						<font>COURSE</font>
-						<a class="class-button">
-							<i class="material-icons" onclick = "openInfo('lcourse5')">info</i>
-							<i2 class="material-icons">block</i2>
-						</a>
 					</div>
-					<div class="type" style = "height:150px;padding-top:0px;" onclick = "openInfo('lcourse5')">
+					<div class="type" style = "height:150px;padding-top:0px;">
 						<p style = "color:black;font-size:18px;"><strong>Credits:</strong> <font id = "lcourse5credits">3</font></p>
 						<p style = "color:black;font-size:18px;"><strong>Professor:</strong> <font id = "lcourse5prof">Duncan</font></p>
 						<p style = "color:black;font-size:18px;"><strong>Overall rating:</strong> 
@@ -359,15 +327,11 @@
 						</p>
 					</div>
 				</div>
-				<div id = "lcourse6" style = "float:left;padding-right:20px;width:25%">
+				<div class = "class" id = "lcourse6" style = "float:left;padding-right:20px;width:25%" onclick = "openInfo('lcourse6')">
 					<div class = "course-name">
 						<font>COURSE</font>
-						<a class="class-button">
-							<i class="material-icons" onclick = "openInfo('lcourse6')">info</i>
-							<i2 class="material-icons">block</i2>
-						</a>
 					</div>
-					<div class="type" style = "height:150px;padding-top:0px;" onclick = "openInfo('lcourse6')">
+					<div class="type" style = "height:150px;padding-top:0px;">
 						<p style = "color:black;font-size:18px;"><strong>Credits:</strong> <font id = "lcourse6credits">3</font></p>
 						<p style = "color:black;font-size:18px;"><strong>Professor:</strong> <font id = "lcourse6prof">Duncan</font></p>
 						<p style = "color:black;font-size:18px;"><strong>Overall rating:</strong> 
@@ -377,15 +341,11 @@
 						</p>
 					</div>
 				</div>
-				<div id = "lcourse7" style = "float:left;padding-right:20px;width:25%">
+				<div class = "class" id = "lcourse7" style = "float:left;padding-right:20px;width:25%" onclick = "openInfo('lcourse7')">
 					<div class = "course-name">
 						<font>COURSE</font>
-						<a class="class-button">
-							<i class="material-icons" onclick = "openInfo('lcourse7')">info</i>
-							<i2 class="material-icons">block</i2>
-						</a>
 					</div>
-					<div class="type" style = "height:150px;padding-top:0px;" onclick = "openInfo('lcourse7')">
+					<div class="type" style = "height:150px;padding-top:0px;">
 						<p style = "color:black;font-size:18px;"><strong>Credits:</strong> <font id = "lcourse7credits">3</font></p>
 						<p style = "color:black;font-size:18px;"><strong>Professor:</strong> <font id = "lcourse7prof">Duncan</font></p>
 						<p style = "color:black;font-size:18px;"><strong>Overall rating:</strong> 
@@ -395,15 +355,11 @@
 						</p>
 					</div>
 				</div>
-				<div id = "lcourse8" style = "float:left;padding-right:20px;width:25%">
+				<div class = "class" id = "lcourse8" style = "float:left;padding-right:20px;width:25%" onclick = "openInfo('lcourse8')">
 					<div class = "course-name">
 						<font>COURSE</font>
-						<a class="class-button">
-							<i class="material-icons" onclick = "openInfo('lcourse8')">info</i>
-							<i2 class="material-icons">block</i2>
-						</a>
 					</div>
-					<div class="type" style = "height:150px;padding-top:0px;" onclick = "openInfo('lcourse8')">
+					<div class="type" style = "height:150px;padding-top:0px;">
 						<p style = "color:black;font-size:18px;"><strong>Credits:</strong> <font id = "lcourse8credits">3</font></p>
 						<p style = "color:black;font-size:18px;"><strong>Professor:</strong> <font id = "lcourse8prof">Duncan</font></p>
 						<p style = "color:black;font-size:18px;"><strong>Overall rating:</strong> 
@@ -618,6 +574,17 @@
 			$('#modalCourse').html(title);
 			$('#modalCredits').html(credits);
 			$('#modalProf').html(prof);
+			document.getElementById('modal-addbtn').onclick = function() {
+				add(course);
+			};
+			if (parseInt(course[7]) > 4) {
+				document.getElementById('inactive-btn').style.display = "inline-block";
+				document.getElementById('modal-addbtn').style.display = "none";
+			}
+			else {
+				document.getElementById('inactive-btn').style.display = "none";
+				document.getElementById('modal-addbtn').style.display = "inline-block";
+			}
 			modal.style.display = "block";
 		}
 		span.onclick = function() {

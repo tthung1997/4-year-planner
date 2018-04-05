@@ -52,7 +52,7 @@ body {
 	color: #f2f2f2;
 	text-align: center;
 	padding: 16px 14px;
-	height: 50px;
+	height: 60px;
 	text-decoration: none;
 }
 
@@ -66,7 +66,7 @@ body {
 	height: 40px;
 	width: 300px;
 	font-size: 16px;
-	margin: 5px 0;
+	margin: 10px 0;
 	float: left;
 }
 
@@ -136,6 +136,14 @@ body {
 	border: 2px solid #8f8f8f;
 }
 
+.class {
+	cursor: pointer;
+}
+
+.class:hover .type {
+	background-color: #e5e5e5;
+}
+
 .type {
 	background-color: white;
 	padding: 20px;
@@ -145,23 +153,8 @@ body {
 	border: 2px solid #8f8f8f;
 }
 
-.type-active {
-	background-color: white;
-	padding: 20px;
-	margin-bottom: 20px;
-	text-align: center;
-	height: 300px;
-	border: 2px solid #d36666;
-}
-
-.type:hover {
+.course-type:hover {
 	background-color: #e5e5e5;
-	cursor: pointer;
-}
-
-.type-active:hover {
-	background-color: #e5e5e5;
-	cursor: pointer;
 }
 
 .semester-name {
@@ -347,6 +340,29 @@ body {
 
 .modal-button:hover {
 	background-color: #4b4b4b;
+}
+
+.modal-inactivebtn {
+	background-color: #8f8f8f;
+	border: none;
+	color: white;
+	padding: 10px 20px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	margin: 0 5px;
+	cursor: pointer;
+	float: left;
+	font-size: 16px;
+	height: 40px;
+}
+
+#modal-addbtn {
+	background-color: #4caf50;
+}
+
+#modal-addbtn:hover {
+	background-color: green;
 }
 
 .modal-body {
@@ -581,7 +597,7 @@ textarea {
     color: black;
 }
 
-.course-type{
+.type-name {
 	padding-top:90px;
 	font-size:45px;
 	color:black;

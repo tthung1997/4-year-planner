@@ -15,20 +15,26 @@
 		<h1>FOUR-YEAR PLANNER</h1>
 	</div>
 	<div class="topnav">
-		<a href="index.html"><i class = "material-icons">home</i></a>
-		<select style = "padding-left: 10px">
+		<a href="index.html"><i class = "material-icons" style = "font-size:30px">home</i></a>
+		<select id = "planSelect" style = "padding-left: 10px" onchange = "select()">
 			<option value = "Default Plan">Default Plan</option>
 			<option value = "My Plan">My Plan</option>
 		</select>
 		<a href = "notification.html" style = "float: right">
-			<i class = "material-icons">notifications</i>
+			<i class = "material-icons" style = "font-size:30px">notifications</i>
 			<div class = "badge">1</div>
 		</a>
-		<a href="#" style="float:right">Hi, User!</a>
+		<a href="#" style="float:right;font-size:20px;padding-top:20px">Hi, User!</a>
 	</div>
 	<div class = "home-bar">
 		<p style = "float: left;">Current semester is in <b style = "color: blue">blue</b></p>
 		<div class = "buttongroup">
+			<button class = "home-button" id = "createBtn" onclick = "create()">
+				<div style = "float: left; font-size: 16px; padding: 5px 5px 0 0">New Plan</div>
+				<div style = "float: left">
+					<i class = "material-icons">note_add</i>
+				</div>
+			</button>
 			<button class = "home-button" id = "saveBtn">
 				<div style = "float: left; font-size: 16px; padding: 5px 5px 0 0">Save</div>
 				<div style = "float: left">
@@ -84,7 +90,7 @@
 		</div>
 	</div>
 	<div class="row" style = "margin-top: 10px">
-		<div class="leftcolumn leftgroup">
+		<div id = "oldSemester" class="leftcolumn leftgroup">
 			<div class="row">
 				<div class="leftcolumn">
 					<div class = "semester-name">First semester</div>
@@ -127,6 +133,26 @@
 							<div style = "float:right;font-size:30px;padding:10px 30px 10px 0px;font-variant: small-caps;">Credits: 3</div>
 						</div>
 					</div>	
+				</div>
+			</div>
+		</div>
+		<div id = "newSemester" class="leftcolumn leftgroup" style = "display:none">
+			<div class="row">
+				<div class="leftcolumn">
+					<div class = "semester-name">First semester</div>
+					<div class="semester">	
+						<a href="semester.html">
+							<i class = "material-icons">add_circle</i>			
+						</a>
+					</div>
+				</div>
+				<div class="rightcolumn">
+					<div class = "semester-name">Second semester</div>
+					<div class="semester">
+						<a href="semester.html">
+							<i class = "material-icons">add_circle</i>			
+						</a>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -201,6 +227,28 @@
 		var btn = document.getElementById('saveBtn');
 		var modalBtn = document.getElementById('modal-saveBtn');
 		var span = document.getElementsByClassName("close")[0];
+		function create() {
+			var option = document.createElement("option");
+			var select = document.getElementById("planSelect");
+			option.text = "New Plan";
+			option.value = "New Plan";
+			option.selected = true;
+			select.add(option);
+			document.getElementById("oldSemester").style.display = "none";
+			document.getElementById("newSemester").style.display = "block";
+		}
+		function select() {
+			var sel = document.getElementById("planSelect");
+			var option = sel.options[sel.selectedIndex];
+			if (option.value != "New Plan") {
+				document.getElementById("oldSemester").style.display = "block";
+				document.getElementById("newSemester").style.display = "none";
+			}
+			else {
+				document.getElementById("oldSemester").style.display = "none";
+				document.getElementById("newSemester").style.display = "block";
+			}
+		}
 		function printPage() {
 			window.print();
 		}
